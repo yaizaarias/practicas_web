@@ -1,0 +1,326 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display&display=swap');
+
+body {
+    margin: 0;
+    font-family: 'Poppins', Arial, sans-serif;
+    background: #222;
+}
+
+header {
+    background: #2c2c2c;
+    color: white;
+    padding: 15px;
+    text-align: center;
+}
+
+h1, h2 {
+    font-family: 'Playfair Display', serif;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav li {
+    display: inline;
+    margin: 10px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+}
+
+.cabecera {
+    text-align: center;
+    padding: 20px;
+    background: #8faeb2;
+}
+
+#buscador {
+    width: 50%;
+    padding: 8px;
+    border-radius: 5px;
+    border: none;
+}
+
+
+.contenido {
+    display: flex;
+    background: #8faeb2;
+}
+
+.indice {
+    width: 200px;
+    background: lightgray;
+    padding: 15px;
+}
+
+.indice ul {
+    list-style: none;
+    padding: 0;
+}
+
+.indice a {
+    display: block;
+    background: white;
+    margin: 8px 0;
+    padding: 8px;
+    text-align: center;
+    border-radius: 10px;
+    text-decoration: none;
+    color: black;
+    transition: 0.2s;
+}
+
+.indice a:hover {
+    background: #ddd;
+}
+
+
+.centro {
+    flex: 1;
+    text-align: center;
+}
+
+
+.centro h2 {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.artistas {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 40px;
+    gap: 20px;
+}
+
+.artista {
+    text-align: center;
+    transition: transform 0.2s;
+}
+
+.artista:hover {
+    transform: scale(1.05);
+}
+
+.artista img {
+    width: 140px;
+    height: 140px;
+    object-fit: cover;
+    border-radius: 10px;
+    background: lightgray;
+}
+
+.artista p {
+    color: orange;
+    margin-top: 8px;
+}
+
+
+.filtros {
+    width: 200px;
+    background: lightgray;
+    padding: 15px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+}
+
+.filtros h2,
+.filtros h3 {
+    text-align: center;
+}
+
+.filtros h3 {
+    color: red;
+}
+
+select, button {
+    width: 80%;
+    margin-bottom: 10px;
+    padding: 6px;
+    border-radius: 5px;
+    border: none;
+}
+
+
+footer {
+    background: #2c2c2c;
+    color: white;
+    text-align: center;
+    padding: 15px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-around;
+}
+
+.cabecera {
+    position: relative;
+}
+
+.volver {
+    position: absolute;
+    top: 10px;
+    left: 15px;
+    text-decoration: none;
+    color: #444;
+    font-weight: 600;
+}
+
+.volver:hover {
+    text-decoration: underline;
+}
+
+
+.genero-titulo {
+    color: blue;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+
+.filtros {
+    width: 180px;
+    background: lightgray;
+    padding: 15px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.filtros a {
+    width: 100%;
+    text-align: center;
+    padding: 6px;
+    margin: 5px 0;
+    font-size: 14px;
+    background: white;
+    border-radius: 6px;
+    text-decoration: none;
+    color: black;
+    transition: 0.2s;
+}
+
+.filtros a:hover {
+    background: #ddd;
+}
+
+.cabecera {
+    position: relative;
+}
+
+.login {
+    position: absolute;
+    top: 10px;
+    left: 15px;
+    text-decoration: none;
+    color: red;
+    font-weight: bold;
+}
+
+.login:hover {
+    text-decoration: underline;
+}
+
+
+.volver {
+    position: absolute;
+    top: 35px;
+    left: 15px;
+    text-decoration: none;
+    color: #444;
+    font-weight: 600;
+}
+
+.volver:hover {
+    text-decoration: underline;
+}
+
+.titulo-login {
+    text-align: center;
+    color: blue;
+    font-family: 'Playfair Display', serif;
+    margin-top: 20px;
+}
+
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    background: #8faeb2;
+}
+
+.login-form {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    gap: 15px;
+}
+
+.login-form input {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.login-form button {
+    background: #2c2c2c;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.login-form button:hover {
+    background: #444;
+}
+
+.registro {
+    text-align: center;
+    font-size: 14px;
+}
+
+.registro a {
+    color: blue;
+    text-decoration: none;
+}
+
+.titulo-novedades {
+    font-family: 'Playfair Display', serif;
+    color: blue;
+    font-style: italic;
+    text-align: center;
+    margin-top: 20px;
+}
+
+
+.subtitulo-novedades {
+    color: blue;
+    text-align: center;
+    margin-top: 10px;
+    letter-spacing: 1px;
+}
+
+
+.fecha {
+    font-size: 14px;
+    margin-top: -5px;
+}
+.artista h2 {
+    margin-bottom: 10px;
+}
+
+.centro {
+    padding: 30px;
+}
