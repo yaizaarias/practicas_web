@@ -1,9 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display&display=swap');
 
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
     margin: 0;
     font-family: 'Poppins', Arial, sans-serif;
-    background: #222;
+    background: #8faeb2;
 }
 
 header {
@@ -97,9 +103,57 @@ nav a {
     gap: 20px;
 }
 
+.topCanciones {
+    display: flex;
+    justify-content: center;
+    gap: 90px;
+    flex-wrap: wrap;
+    margin-top: 40px;
+}
+
+.titulo-top {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    color: rgb(62, 62, 122);
+    font-size: 48px;
+    font-weight: 400;
+    margin-bottom: 20px;
+}
+
+.bloque-top-canciones {
+    margin-top: 35px;
+    text-align: center;
+}
+
 .artista {
     text-align: center;
     transition: transform 0.2s;
+}
+
+.cancion {
+    text-align: center;
+    width: 300px;
+}
+
+.cancion img {
+    width: 300px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 0;
+    background: #efefef;
+}
+
+.cancion p:first-of-type {
+    color: rgb(128, 89, 7);
+    font-weight: 600;
+    margin-top: 8px;
+    margin-bottom: 4px;
+}
+
+.cancion p:last-of-type {
+    color: brown;
+    font-size: 14px;
+    margin: 0;
 }
 
 .artista:hover {
@@ -164,6 +218,12 @@ footer {
     position: relative;
 }
 
+.detalles {
+    background: #8faeb2;
+    min-height: 100vh;
+    padding: 18px 40px 50px;
+}
+
 .volver {
     position: absolute;
     top: 10px;
@@ -177,6 +237,61 @@ footer {
     text-decoration: underline;
 }
 
+.contenido-artista {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 40px;
+    align-items: start;
+    margin-top: 20px;
+}
+
+.artistaInfo {
+    display: flex;
+    flex-direction: column; 
+    text-align: center;
+    align-items: center;
+}
+
+.artistaInfo img {
+    display: block;
+    width: 600px;
+    height: 340px;
+    object-fit: cover;
+    margin-bottom: 20px;
+    background: #efefef;
+}
+
+.artistaInfo p {
+    max-width: 700px;
+    margin: 18px auto 0;
+    text-align: left;
+    font-size: 18px;
+    line-height: 1.5;
+    color: #111;
+}
+
+.artistaInfo h2{
+    color: rgb(62, 62, 122);
+    font-size: 48px;
+    font-family: 'Playfair Display', serif; 
+}
+
+.datos-artista h3 {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    color: rgb(62, 62, 122);
+    font-size: 48px;
+    font-weight: 400;
+    margin-bottom: 25px;
+    margin-left: 10px;
+}
+
+.datos-artista h4 {
+    margin-bottom: 28px;
+    color: #111;
+    font-size: 20px;
+    margin-left: 10px;
+}
 
 .genero-titulo {
     color: blue;
@@ -311,7 +426,6 @@ footer {
     margin-top: 10px;
     letter-spacing: 1px;
 }
-
 
 .fecha {
     font-size: 14px;
