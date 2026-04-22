@@ -1,10 +1,10 @@
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-    <title>Sinfonía Urbana</title>
     <meta charset="UTF-8">
+    <title>Sinfonía Urbana</title>
     <meta name="description" content="Web de música">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Yaiza">
@@ -15,16 +15,16 @@
 <body>
 
     <header>
-        <h1>Sinfonía Urbana </h1>
+        <h1>Sinfonía Urbana</h1>
 
         <nav>
             <ul>
                 <li><a href="./artistas.html">Artistas</a></li>
-                <li><a href="./albumes.html">Álbumes</a></li>
-                <li><a href="./canciones.html">Canciones</a></li>
-                <li><a href="./top.html">Top global</a></li>
-                <li><a href="./novedades.html">Novedades</a></li>
-                <li><a href="./generos.html">Géneros</a></li>
+				<li><a href="./albumes.html">Álbumes</a></li>
+				<li><a href="./canciones.html">Canciones</a></li>
+				<li><a href="./top.html">Top global</a></li>
+				<li><a href="./novedades.html">Novedades</a></li>
+				<li><a href="./generos.html">Géneros</a></li>
             </ul>
         </nav>
       
@@ -110,12 +110,12 @@
                     <option value="MenosEscuchados">Menos escuchados </option>
                 </select>
 
-                <h3>Año</h3>
+                <h3>AÃ±o</h3>
                 <select id="filtroAno">
                     <option value="todos">Todos</option>
                     <option value="2020-2026">2020-2026</option>
                     <option value="2010-2020">2010-2020</option>
-                    <optiom value="MasAntiguo"> Más antiguo</optiom>
+                    <option value="MasAntiguo"> Más antiguo</optiom>
                 </select>
 
 
