@@ -2,27 +2,20 @@ package app;
 
 public class ArtistaCancion {
 
-	private int idArtista;
-	private int idCancion;
+	private String idArtista;
+	private String idCancion;
 
-	public ArtistaCancion(int idArtista, int idCancion) {
-		this.idArtista = idArtista;
-		this.idCancion = idCancion;
+	public ArtistaCancion(Artista artistaBuscado, Cancion cancionBuscada) {
+		this.idArtista = artistaBuscado.getId();
+		this.idCancion = cancionBuscada.getId();
 	}
 
-	public int getIdArtista() {
+	public String getIdArtista() {
 		return idArtista;
 	}
 
-	public void setIdArtista(int idArtista) {
-		this.idArtista = idArtista;
-	}
-
-	public int getIdCancion() {
+	public String getIdCancion() {
 		return idCancion;
 	}
 
-	public void setIdCancion(int idCancion) {
-		this.idCancion = idCancion;
-	}
 }

@@ -1,3 +1,4 @@
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 
 <!DOCTYPE html>
 <html lang="es">
@@ -35,7 +36,7 @@
 
         <div class="cabecera">
             <a href="login.html" class="login">Acceso</a>
- <!----------------------BÚSQUEDA DINÁMICA ---------------------->
+ <!----------------------BÚSQUEDA DINÁMICA ---------------------->
  		 	<form action="buscar" method="GET">
      		    <input type="text"  name="query" placeholder="¿Qué quieres buscar?" id="buscador">
     		</form>

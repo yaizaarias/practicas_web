@@ -1,28 +1,38 @@
 package app;
 
 public class Albumes {
-    private int id;
+    private String id;
     private String titulo;
     private java.sql.Date ano;
-    private int idArtista;
+    private String idArtista;
     
-    public Albumes(int id, String titulo, java.sql.Date ano, int idArtista) {
-        this.id = id;
+    private static int contadorAlbumes=0;
+    
+    public Albumes(String titulo, java.sql.Date ano, Artista artista) {
+    	this.id = "AL-"+ contadorAlbumes;
         this.titulo = titulo;
         this.ano = ano;
-        this.idArtista = idArtista;
+        this.idArtista = artista.getId();
+        
+        contadorAlbumes++;
+    }
+    
+    public static void setContadorAlbumes(int ultimoRegistro) {
+		contadorAlbumes=ultimoRegistro;
+	}
+	
+	public static int getContadorAlbumes() {
+        return contadorAlbumes;
     }
 
-    public int getId() { 
-    	return id; 
-    	}
-    public void setId(int id) { 
-    	this.id = id; 
+    public String getId() { 
+    	return this.id; 
     	}
 
     public String getTitulo() { 
     	return titulo; 
     	}
+    
     public void setTitulo(String titulo) { 
     	this.titulo = titulo; 
     	}
@@ -30,14 +40,16 @@ public class Albumes {
     public java.sql.Date getAno() { 
     	return ano; 
     	}
+    
     public void setAno(java.sql.Date ano) { 
     	this.ano = ano; 
     	}
 
-    public int getIdArtista() { 
+    public String getIdArtista() { 
     	return idArtista; 
     	}
-    public void setIdArtista(int idArtista) { 
+    
+    public void setIdArtista(String idArtista) { 
     	this.idArtista = idArtista; 
     	}
 }
