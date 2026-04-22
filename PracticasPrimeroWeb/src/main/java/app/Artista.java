@@ -1,7 +1,7 @@
 package app;
 
 public class Artista {
-	private int id;
+	private String id;
 	private String nombre;
 	private int edad;
 	private String pais;
@@ -9,10 +9,12 @@ public class Artista {
 	private int oyentesMensuales;
 	private String biografia;
 	private String genero;
+	
+	private static int contadorArtistas=0;
 
-	public Artista(int id, String nombre, int edad, String pais, String productor, int oyentesMensuales,
+	public Artista(String nombre, int edad, String pais, String productor, int oyentesMensuales,
 			String biografia, String genero) {
-		this.id = id;
+		this.id = "AR-"+ contadorArtistas;
 		this.nombre = nombre;
 		this.edad = edad;
 		this.pais = pais;
@@ -20,14 +22,20 @@ public class Artista {
 		this.oyentesMensuales = oyentesMensuales;
 		this.biografia = biografia;
 		this.genero = genero;
+		
+		contadorArtistas++;
 	}
-
-	public int getId() {
-		return id;
+	
+	public static void setContadorArtistas(int ultimoRegistro) {
+		contadorArtistas=ultimoRegistro;
 	}
+	
+	public static int getContadorArtistas() {
+        return contadorArtistas;
+    }
 
-	public void setId(int id) {
-		this.id = id;
+	public String getId() {
+		return this.id;
 	}
 
 	public String getNombre() {
