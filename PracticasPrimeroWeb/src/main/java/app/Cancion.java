@@ -1,36 +1,28 @@
 package app;
 
 public class Cancion {
-	private String id;
+	private int id;
 	private String titulo;
 	private String duracion;
 	private long reproducciones;
 	private java.sql.Date fecha;
-	private String idAlbum;
-	
-	private static int contadorCanciones=0;
+	private int idAlbum;
 
-	public Cancion(String titulo, String duracion, long reproducciones, java.sql.Date fecha, Albumes album) {
-		this.id = "C-"+ contadorCanciones;
+	public Cancion(int id, String titulo, String duracion, long reproducciones, java.sql.Date fecha, int idAlbum) {
+		this.id = id;
 		this.titulo = titulo;
 		this.duracion = duracion;
 		this.reproducciones = reproducciones;
 		this.fecha = fecha;
-		this.idAlbum = album.getId();
-		
-		contadorCanciones++;
+		this.idAlbum = idAlbum;
 	}
-	
-	public static void setContadorCanciones(int ultimoRegistro) {
-		contadorCanciones=ultimoRegistro;
-	}
-	
-	public static int getContadorCanciones() {
-        return contadorCanciones;
-    }
 
-	public String getId() {
+	public int getId() {
 		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public String getTitulo() {
@@ -42,7 +34,7 @@ public class Cancion {
 	}
 
 	public String getDuracion() {
-		return this.duracion;
+		return duracion;
 	}
 
 	public void setDuracion(String duracion) {
@@ -50,7 +42,7 @@ public class Cancion {
 	}
 
 	public long getReproducciones() {
-		return this.reproducciones;
+		return reproducciones;
 	}
 
 	public void setReproducciones(long reproducciones) {
@@ -58,18 +50,18 @@ public class Cancion {
 	}
 
 	public java.sql.Date getFecha() {
-		return this.fecha;
+		return fecha;
 	}
 
 	public void setFecha(java.sql.Date fecha) {
 		this.fecha = fecha;
 	}
 
-	public String getIdAlbum() {
-		return this.idAlbum;
+	public int getIdAlbum() {
+		return idAlbum;
 	}
 
-	public void setIdAlbum(String idAlbum) {
+	public void setIdAlbum(int idAlbum) {
 		this.idAlbum = idAlbum;
 	}
 }

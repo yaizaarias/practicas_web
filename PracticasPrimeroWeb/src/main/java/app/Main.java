@@ -9,7 +9,7 @@ import java.sql.Statement;
 public class Main {
 
 	public static void main(String[] args) throws SQLException {
-		
+		// TODO Auto-generated method stub
 		String url = "jdbc:mysql://localhost:3306/musica_db";
 		String user = "root";
 		String password = "70107010";
