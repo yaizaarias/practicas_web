@@ -30,13 +30,17 @@
 <!--------------Validación dinámica para entrar en el modo administrador -------------------->
         <div class="login-container">
 
-            <form class="login-form">
+            <form class="login-form" action="login" method="post">
 
                 <input type="text" name="identificador" placeholder="Email o nickname" required>
 
-                <input type="password" placeholder="Contraseña" required>
+                <input type="password" name="contrasena" placeholder="Contraseña" required>
 
                 <button type="submit">Entrar</button>
+                
+                <p class="mensaje-error">
+                    <%= request.getAttribute("error") != null ? request.getAttribute("error") : "" %>
+                </p>
 
             </form>
 
