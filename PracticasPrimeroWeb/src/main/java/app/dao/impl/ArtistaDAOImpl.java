@@ -142,7 +142,9 @@ public class ArtistaDAOImpl implements ArtistaDAO {
             String sql = """
                 SELECT c.*
                 FROM cancion c
+
                 INNER JOIN artista_cancion ac ON c.id = ac.id_cancion
+                
                 WHERE ac.id_artista = ?
             """;
 

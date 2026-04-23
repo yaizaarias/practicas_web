@@ -2,9 +2,9 @@
 <html lang="es">
 
 <head>
-    <title>Novedades - Sinfon√≠a Urbana</title>
+    <title>Novedades - SinfonÌa Urbana</title>
     <meta charset="UTF-8">
-    <meta name="description" content="√öltimos lanzamientos">
+    <meta name="description" content="Novedades">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Yaiza">
     <link rel="stylesheet" href="styles.css">
@@ -14,16 +14,16 @@
 
 
     <header>
-        <h1>Sinfon√≠a Urbana</h1>
+        <h1>SinfonÌa Urbana</h1>
 
         <nav>
             <ul>
-                <li><a href="./artistas.html">Artistas</a></li>
-                <li><a href="./albumes.html">√Ålbumes</a></li>
-                <li><a href="./canciones.html">Canciones</a></li>
-                <li><a href="./top.html">Top global</a></li>
-                <li><a href="./novedades.html">Novedades</a></li>
-                <li><a href="./generos.html">G√©neros</a></li>
+                <li><a href="./artistas.jsp">Artistas</a></li>
+                <li><a href="./albumes.jsp">¡lbumes</a></li>
+                <li><a href="./canciones.jsp">Canciones</a></li>
+                <li><a href="./top.jsp">Top global</a></li>
+                <li><a href="./novedades.jsp">Novedades</a></li>
+                <li><a href="./generos.jsp">GÈneros</a></li>
             </ul>
         </nav>
 
@@ -35,16 +35,16 @@
 
         <div class="cabecera">
 
-            <a href="./login.jsp" class="login">Acceso</a>
-            <a href="./index.jsp" class="volver">Volver al √≠ndice</a>
- <!----------------------B√öSQUEDA DIN√ÅMICA ---------------------->
-            <input type="text" placeholder="¬øQu√© quieres buscar?" id="buscador">
+            <a href="login.jsp" class="login">Acceso</a>
+            <a href="index.jsp" class="volver">Volver al Ìndice</a>
+ <!----------------------B⁄SQUEDA DIN¡MICA ---------------------->
+            <input type="text" placeholder="øQuÈ quieres buscar?" id="buscador">
 
             <h2 class="titulo-novedades">Novedades</h2>
-            <h3 class="subtitulo-novedades">√öLTIMOS LANZAMIENTOS</h3>
+            <h3 class="subtitulo-novedades">⁄LTIMOS LANZAMIENTOS</h3>
 
         </div>
-<!----------- Listado din√°mico de √∫ltimos √°lbumes ordenados por fecha de m√°s reciente a antigua ---------->
+<!----------- Listado din·mico de ˙ltimos ·lbumes ordenados por fecha de m·s reciente a antigua ---------->
         <div class="contenido">
 
             <section class="centro">
@@ -53,25 +53,25 @@
 
                     <div class="artista">
                         <img src="../imgs/" alt="">
-                        <p>nombre √°lbum</p>
+                        <p>nombre ¡lbum</p>
                         <p class="fecha">fecha lanzamiento</p>
                     </div>
 
                     <div class="artista">
                         <img src="../imgs/" alt="">
-                        <p>nombre √°lbum</p>
+                        <p>nombre ¡lbum</p>
                         <p class="fecha">fecha lanzamiento</p>
                     </div>
 
                     <div class="artista">
                         <img src="../imgs/" alt="">
-                        <p>nombre √°lbum</p>
+                        <p>nombre ¡lbum</p>
                         <p class="fecha">fecha lanzamiento</p>
                     </div>
 
                     <div class="artista">
                         <img src=".../imgs/" alt="">
-                        <p>nombre √°lbum</p>
+                        <p>nombre ¡lbum</p>
                         <p class="fecha">fecha lanzamiento</p>
                     </div>
 
@@ -88,7 +88,7 @@
         <div class="footer-content">
             <div>
                 <h4>Proyecto</h4>
-                <p>Sinfon√≠a Urbana</p>
+                <p>SinfonÌa Urbana</p>
             </div>
 
             <div>
