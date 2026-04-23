@@ -34,7 +34,7 @@
     <main>
 
         <div class="cabecera">
-            <a href="login.html" class="login">Acceso</a>
+            <a href="login.jsp" class="login">Acceso</a>
  <!----------------------BÚSQUEDA DINÁMICA ---------------------->
  		 	<form action="buscar" method="GET">
      		    <input type="text"  name="query" placeholder="¿Qué quieres buscar?" id="buscador">
@@ -110,7 +110,7 @@
                     <option value="MenosEscuchados">Menos escuchados </option>
                 </select>
 
-                <h3>AÃ±o</h3>
+                <h3>Año</h3>
                 <select id="filtroAno">
                     <option value="todos">Todos</option>
                     <option value="2020-2026">2020-2026</option>
