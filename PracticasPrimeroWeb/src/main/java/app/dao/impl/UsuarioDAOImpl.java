@@ -30,7 +30,8 @@ public class UsuarioDAOImpl implements UsuarioDAO {
                         rs.getInt("id"),
                         rs.getString("email"),
                         rs.getString("contrasena"),
-                        rs.getString("rol")
+                        rs.getString("rol"),
+                        rs.getString("nickname")
                 );
             }
 

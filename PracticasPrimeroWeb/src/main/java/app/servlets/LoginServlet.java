@@ -25,7 +25,7 @@ public class LoginServlet extends HttpServlet {
         if (usuario.equals("bea1234") && contrasena.equals("123456")) {
             HttpSession sesion = request.getSession();
             sesion.setAttribute("usuario", usuario);
-            sesion.setAttribute("rol", "admin");
+            sesion.setAttribute("rol", "admin"); /*cambiar rol al que aparezca en la tabla*/
             sesion.setAttribute("sesionIniciada", "Sesion iniciada en " + usuario);
             response.sendRedirect(request.getContextPath() + "/index.jsp");
             
