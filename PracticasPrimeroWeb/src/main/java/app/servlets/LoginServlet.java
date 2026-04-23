@@ -12,6 +12,8 @@ import jakarta.servlet.http.HttpSession;
 
 public class LoginServlet extends HttpServlet {
 	
+	private static final long serialVersionUID = 1L;
+	
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -24,7 +26,7 @@ public class LoginServlet extends HttpServlet {
             HttpSession sesion = request.getSession();
             sesion.setAttribute("usuario", usuario);
             sesion.setAttribute("rol", "admin");
-
+            sesion.setAttribute("sesionIniciada", "Sesion iniciada en " + usuario);
             response.sendRedirect(request.getContextPath() + "/index.jsp");
             
         } else {

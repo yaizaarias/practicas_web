@@ -38,7 +38,7 @@
 
                 <button type="submit">Entrar</button>
                 
-                <p class="mensaje-error">
+                <p class="mensaje-error"  style="color: red;">
     				<%= request.getAttribute("error") != null ? request.getAttribute("error") : "" %>
 				</p>
 
