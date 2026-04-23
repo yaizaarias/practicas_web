@@ -1,5 +1,3 @@
-<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-
 <!DOCTYPE html>
 <html lang="es">
 
@@ -30,17 +28,13 @@
 <!--------------Validación dinámica para entrar en el modo administrador -------------------->
         <div class="login-container">
 
-            <form class="login-form" action="login" method="post">
+            <form class="login-form">
 
-                <input type="text" name="usuario" placeholder="Usuario" required>
+                <input type="text" name="identificador" placeholder="Email o nickname" required>
 
-                <input type="password" name="contrasena" placeholder="Contraseña" required>
+                <input type="password" placeholder="ContraseÃ±a" required>
 
                 <button type="submit">Entrar</button>
-                
-                <p class="mensaje-error"  style="color: red;">
-    				<%= request.getAttribute("error") != null ? request.getAttribute("error") : "" %>
-				</p>
 
             </form>
 

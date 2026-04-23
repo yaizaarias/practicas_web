@@ -1,11 +1,10 @@
-<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
+    <title>SinfonÌa Urbana</title>
     <meta charset="UTF-8">
-    <title>Sinfon√≠a Urbana</title>
-    <meta name="description" content="Web de m√∫sica">
+    <meta name="description" content="SinfonÌa Urbana">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Yaiza">
     <meta name="robots" content="index, follow">
@@ -15,16 +14,16 @@
 <body>
 
     <header>
-        <h1>Sinfon√≠a Urbana</h1>
+        <h1>SinfonÌa Urbana </h1>
 
         <nav>
             <ul>
-                <li><a href="./artistas.html">Artistas</a></li>
-				<li><a href="./albumes.html">√Ålbumes</a></li>
-				<li><a href="./canciones.html">Canciones</a></li>
-				<li><a href="./top.html">Top global</a></li>
-				<li><a href="./novedades.html">Novedades</a></li>
-				<li><a href="./generos.html">G√©neros</a></li>
+                <li><a href="./artistas.jsp">Artistas</a></li>
+                <li><a href="./albumes.jsp">¡lbumes</a></li>
+                <li><a href="./canciones.jsp">Canciones</a></li>
+                <li><a href="./top.jsp">Top global</a></li>
+                <li><a href="./novedades.jsp">Novedades</a></li>
+                <li><a href="./generos.jsp">GÈneros</a></li>
             </ul>
         </nav>
       
@@ -34,39 +33,21 @@
     <main>
 
         <div class="cabecera">
-        
-			<% 	
-				String usuarioSesion = (String) session.getAttribute("usuario"); 
-				String mensajeSesion = (String) session.getAttribute("sesionIniciada");
-			%> 
-			
-			<% if (usuarioSesion != null) { %>
-    			<a href="logout" class="login">Cerrar sesi√≥n</a>
-			<% } else { %>
-    			<a href="login.jsp" class="login">Acceso</a>
-			<% } %>
-
-			<% if (mensajeSesion != null) { %>
-    			<p style="color: white; font-size: 10px; text-align: start; padding-top: 12px;">
-        			<%= mensajeSesion %>
-    			</p>
-			<% } %>
-			
-
- <!----------------------B√öSQUEDA DIN√ÅMICA ---------------------->
+            <a href="login.jsp" class="login">Acceso</a>
+ <!----------------------B⁄öSQUEDA DIN¡ÅMICA ---------------------->
  		 	<form action="buscar" method="GET">
-     		    <input type="text"  name="query" placeholder="¬øQu√© quieres buscar?" id="buscador">
+     		    <input type="text"  name="query" placeholder="øQuÈ quieres buscar?" id="buscador">
     		</form>
 
-            <p>Descubre m√∫sica y la informaci√≥n de tus artistas favoritos con un solo click!</p>
+            <p>Descubre m˙sica y la informaciÛn de tus artistas favoritos con un solo click!</p>
         </div>
 
         <div class="contenido">
 
-<!------------------------ Listas din√°micas de artistas------------------------------->
+<!------------------------ Listas din·micas de artistas------------------------------->
             <section class="centro">
 
-                <h2>Artistas m√°s buscados</h2>
+                <h2>Artistas m·s buscados</h2>
 
                 <div class="artistas" id="listaArtistas">
 
@@ -99,12 +80,12 @@
 
             </section>
 
-<!--------------------------- Filtros din√°micos-------------------------------------->
+<!--------------------------- Filtros din·micos-------------------------------------->
             <section class="filtros">
 
                 <h2>Filtros</h2>
 
-                <h3>G√©nero</h3>
+                <h3>GÈnero</h3>
                 <select id="filtroGenero">
                     <option value="">Todos</option>
                     <option value="pop">Pop</option>
@@ -117,23 +98,23 @@
                 <h3>Idioma</h3>
                 <select id="filtroIdioma">
                     <option value="">Todos</option>
-                    <option value="espanol">Espa√±ol</option>
-                    <option value="ingles">Ingl√©s</option>
+                    <option value="espanol">EspaÒol</option>
+                    <option value="ingles">InglÈs</option>
                 </select>
 
                 <h3>Popularidad</h3>
                 <select id="filtroPopularidad">
                     <option value="">Todos</option>
-                    <option value="MasEscuchados">M√°s escuchados</option>
+                    <option value="MasEscuchados">M·s escuchados</option>
                     <option value="MenosEscuchados">Menos escuchados </option>
                 </select>
 
-                <h3>A√±o</h3>
+                <h3>AÒo</h3>
                 <select id="filtroAno">
                     <option value="todos">Todos</option>
                     <option value="2020-2026">2020-2026</option>
                     <option value="2010-2020">2010-2020</option>
-                    <option value="MasAntiguo"> M√°s antiguo</optiom>
+                    <optiom value="MasAntiguo"> M·s antiguo</optiom>
                 </select>
 
 
@@ -149,7 +130,7 @@
         <div class="footer-content">
             <div>
                 <h4>Proyecto</h4>
-                <p> Sinfon√≠a Urbana </p>
+                <p> SinfonÌa Urbana </p>
             </div>
             
             <div>
