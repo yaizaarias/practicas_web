@@ -32,7 +32,7 @@
 
             <form class="login-form" action="login" method="post">
 
-                <input type="text" name="usuario" placeholder="Usuario" required>
+                <input type="text" name="identificador" placeholder="Email o nickname" required>
 
                 <input type="password" name="contrasena" placeholder="Contraseña" required>
 

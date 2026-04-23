@@ -14,14 +14,15 @@ public class UsuarioDAOImpl implements UsuarioDAO {
     }
 
     @Override
-    public Usuario login(String email, String password) {
+    public Usuario login(String identificador, String password) {
         Usuario u = null;
 
         try {
-            String sql = "SELECT * FROM usuario WHERE email=? AND contrasena=?";
+        	String sql = "SELECT * FROM usuarios WHERE (email = ? OR nickname = ?) AND contrasena = ?";
             PreparedStatement ps = conn.prepareStatement(sql);
-            ps.setString(1, email);
-            ps.setString(2, password);
+            ps.setString(1, identificador);
+            ps.setString(2, identificador);
+            ps.setString(3, password);
 
             ResultSet rs = ps.executeQuery();
 
