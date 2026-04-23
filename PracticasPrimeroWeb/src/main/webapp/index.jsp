@@ -47,7 +47,7 @@
 			<% } %>
 
 			<% if (mensajeSesion != null) { %>
-    			<p style="color: white; font-size: 10px; text-align: start; margin: 12px 0;">
+    			<p style="color: white; font-size: 10px; text-align: start; padding-top: 12px;">
         			<%= mensajeSesion %>
     			</p>
 			<% } %>

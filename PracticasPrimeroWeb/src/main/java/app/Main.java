@@ -10,9 +10,9 @@ public class Main {
 
 	public static void main(String[] args) throws SQLException {
 		// TODO Auto-generated method stub
-		String url = "jdbc:mysql://localhost:3306/musica_db";
+		String url = "jdbc:mysql://localhost:3306/musicaDB";
 		String user = "root";
-		String password = "70107010";
+		String password = "admin";
 
 		Connection conn = DriverManager.getConnection(url, user, password);
 		
