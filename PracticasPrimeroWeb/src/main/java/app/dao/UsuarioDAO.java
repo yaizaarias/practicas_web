@@ -4,7 +4,7 @@ import app.Usuario;
 
 public interface UsuarioDAO {
 
-    Usuario login(String email, String password);
+    Usuario login(String identificador, String password);
 
     Usuario findByEmail(String email);
 
