@@ -1,29 +1,28 @@
+/
 <!DOCTYPE html>
 <html lang="es">
 
 <head>
-    <title>G√©neros - Sinfon√≠a Urbana</title>
+    <title>GÈneros - SinfonÌa Urbana</title>
     <meta charset="UTF-8">
-    <meta name="description" content="G√©neros musicales">
+    <meta name="description" content="GÈneros musicales">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Yaiza">
     <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-
-
     <header>
-        <h1>Sinfon√≠a Urbana</h1>
+        <h1>SinfonÌa Urbana</h1>
 
         <nav>
             <ul>
-                <li><a href="./artistas.html">Artistas</a></li>
-                <li><a href="./albumes.html">√Ålbumes</a></li>
-                <li><a href="./canciones.html">Canciones</a></li>
-                <li><a href="./top.html">Top global</a></li>
-                <li><a href="./novedades.html">Novedades</a></li>
-                <li><a href="./generos.html">G√©neros</a></li>
+                <li><a href="./artistas.jsp">Artistas</a></li>
+                <li><a href="./albumes.jsp">¡lbumes</a></li>
+                <li><a href="./canciones.jsp">Canciones</a></li>
+                <li><a href="./top.jsp">Top global</a></li>
+                <li><a href="./novedades.jsp">Novedades</a></li>
+                <li><a href="./generos.jsp">GÈneros</a></li>
             </ul>
         </nav>
         
@@ -31,76 +30,75 @@
     </header>
 
     <main>
-
-
         <div class="cabecera">
 
-            <a href="index.jsp" class="volver">Volver al √≠ndice</a>
-            <a href="login.html" class="login">Acceso</a>
- <!----------------------B√öSQUEDA DIN√ÅMICA ---------------------->
-            <input type="text" placeholder="¬øQu√© quieres buscar?" id="buscador">
+            <a href="index.jsp" class="volver">Volver al Ìndice</a>
+            <a href="login.jsp" class="login">Acceso</a>
+ <!----------------------B⁄SQUEDA DIN¡MICA ---------------------->
+            <input type="text" placeholder="øQuÈ quieres buscar?" id="buscador">
 
-            <h2><i>G√©nero:</i> <span class="genero-titulo">RAP</span></h2>
+            <h2><i>GÈnero:</i> <span class="genero-titulo">Trap</span></h2>
 
         </div>
-
- <!------------------Filtro din√°mico de m√∫sica de g√©nero rap ----------->
+        
+ <!------------------Filtro din·mico de m˙sica de gÈnero Trap ----------->
         <div class="contenido">
 
-
+          
             <section class="centro">
 
-
+               
                 <div class="artistas">
 
                     <div class="artista">
                         <img src="../imgs/" alt="">
-                        <p>nombre √°lbum</p>
+                        <p>nombre ¡lbum</p>
                     </div>
 
                     <div class="artista">
                         <img src="../imgs/" alt="">
-                        <p>nombre √°lbum</p>
+                        <p>nombre ¡lbum</p>
                     </div>
 
                     <div class="artista">
                         <img src="../imgs/" alt="">
-                        <p>nombre √°lbum</p>
+                        <p>nombre ¡lbum</p>
                     </div>
 
                 </div>
 
-    
+              
                 <div class="artistas">
 
                     <div class="artista">
                         <img src="../imgs/" alt="">
-                        <p>nombre √°lbum</p>
+                        <p>nombre ¡lbum</p>
                     </div>
 
                     <div class="artista">
                         <img src="../imgs/" alt="">
-                        <p>nombre √°lbum</p>
+                        <p>nombre ¡lbum</p>
                     </div>
 
                     <div class="artista">
                         <img src="../imgs/" alt="">
-                        <p>nombre √°lbum</p>
+                        <p>nombre </p>
                     </div>
 
                 </div>
 
             </section>
-<!------------------Filtro din√°mico de los g√©neros ser√≠a con un WHERE genero = 'Pop' / 'Rap' etc ----------->
+
+        <!------------------Filtro din·mico de los gÈneros ser· con un WHERE genero = 'Pop' / 'Rap' etc ----------->  
             <section class="filtros">
 
-                <h2>G√©neros</h2>
+                <h2>GÈneros</h2>
 
-                <a href="./generos.html">Pop</a>
-                <a href="./generorap.html">Rap</a>
-                <a href="./generoReggaeton.html">Reggaeton</a>
-                <a href="./generoTrap.html">Trap</a>
-                <a href="./generoR&B.html">R&B</a>
+                <a href="./generos.jsp">Pop</a>
+                <a href="./generorap.jsp">Rap</a>
+                <a href="./generoReggaeton.jsp">Reggaeton</a>
+                <a href="./generoTrap.jsp">Trap</a>
+                <a href="./generoR&B.jsp">R&B</a>
 
             </section>
 
@@ -108,12 +106,12 @@
 
     </main>
 
-
+  
     <footer>
         <div class="footer-content">
             <div>
                 <h4>Proyecto</h4>
-                <p>Sinfon√≠a Urbana</p>
+                <p>SinfonÌa Urbana </p>
             </div>
 
             <div>

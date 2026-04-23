@@ -10,16 +10,16 @@
 <body>
 
     <header>
-        <h1>Sinfon√≠a Urbana</h1>
+        <h1>SinfonÌa Urbana</h1>
 
         <nav>
             <ul>
-                <li><a href="./artistas.html">Artistas</a></li>
-                <li><a href="./albumes.html">√Ålbumes</a></li>
-                <li><a href="./canciones.html">Canciones</a></li>
-                <li><a href="./top.html">Top global</a></li>
-                <li><a href="./novedades.html">Novedades</a></li>
-                <li><a href="./generos.html">G√©neros</a></li>
+                <li><a href="./artistas.jsp">Artistas</a></li>
+                <li><a href="./albumes.jsp">¡lbumes</a></li>
+                <li><a href="./canciones.jsp">Canciones</a></li>
+                <li><a href="./top.jsp">Top global</a></li>
+                <li><a href="./novedades.jsp">Novedades</a></li>
+                <li><a href="./generos.jsp">GÈneros</a></li>
             </ul>
         </nav>
 
@@ -30,45 +30,45 @@
 
 
         <div class="cabecera">
-            <a href="login.html" class="login">Acceso</a>
-            <a href="index.jsp" class="volver">Volver al √≠ndice</a>
- <!----------------------B√öSQUEDA DIN√ÅMICA ---------------------->
-            <input type="text" placeholder="¬øQu√© quieres buscar?" id="buscador">
+            <a href="login.jsp" class="login">Acceso</a>
+            <a href="index.jsp" class="volver">Volver al Ìndice</a>
+ <!----------------------B⁄öSQUEDA DIN¡MICA ---------------------->
+            <input type="text" placeholder="øQuÈ quieres buscar?" id="buscador">
         </div>
 
-<!------------ Top din√°mico de 4 canciones ordenadas por reproducciones---------- -->
+<!------------ Top din·mico de 4 canciones ordenadas por reproducciones---------- -->
         <div class="contenido">
 
 
             <section class="centro">
 
                 <h2 class="titulo-novedades">Top global</h2>
-                <h3 class="subtitulo-novedades">LANZAMIENTOS M√ÅS ESCUCHADOS</h3>
+                <h3 class="subtitulo-novedades">LANZAMIENTOS M¡ÅS ESCUCHADOS</h3>
 
                 <div class="artistas">
 
                     <div class="artista">
-                        <h2 style="color:red;">n¬∞1</h2>
+                        <h2 style="color:red;">n∞1</h2>
                         <img src="../imgs/" alt="">
-                        <p>nombre canci√≥n</p>
+                        <p>nombre canciÛn</p>
                     </div>
 
                     <div class="artista">
-                        <h2 style="color:red;">n¬∞2</h2>
+                        <h2 style="color:red;">n∞2</h2>
                         <img src="../imgs/" alt="">
-                        <p>nombre canci√≥n</p>
+                        <p>nombre canciÛn</p>
                     </div>
 
                     <div class="artista">
-                        <h2 style="color:red;">n¬∞3</h2>
+                        <h2 style="color:red;">n∞3</h2>
                         <img src="../imgs/" alt="">
-                        <p>nombre canci√≥n</p>
+                        <p>nombre canciÛn</p>
                     </div>
 
                     <div class="artista">
-                        <h2 style="color:red;">n¬∞4</h2>
+                        <h2 style="color:red;">n∞4</h2>
                         <img src="../imgs/" alt="">
-                        <p>nombre canci√≥n</p>
+                        <p>nombre canciÛn</p>
                     </div>
 
                 </div>
@@ -83,7 +83,7 @@
         <div class="footer-content">
             <div>
                 <h4>Proyecto</h4>
-                <p>Sinfon√≠a Urbana</p>
+                <p>SinfonÌa Urbana</p>
             </div>
 
             <div>

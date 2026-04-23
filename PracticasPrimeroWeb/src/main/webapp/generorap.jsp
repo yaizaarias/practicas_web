@@ -2,9 +2,9 @@
 <html lang="es">
 
 <head>
-    <title>Artistas - Sinfon√≠a Urbana</title>
+    <title>GÈneros - SinfonÌa Urbana</title>
     <meta charset="UTF-8">
-    <meta name="description" content="Artistas musicales">
+    <meta name="description" content="GÈneros musicales">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Yaiza">
     <link rel="stylesheet" href="styles.css">
@@ -12,17 +12,18 @@
 
 <body>
 
+
     <header>
-        <h1>Sinfon√≠a Urbana</h1>
+        <h1>SinfonÌa Urbana</h1>
 
         <nav>
             <ul>
-                <li><a href="./artistas.html">Artistas</a></li>
-                <li><a href="./albumes.html">√Ålbumes</a></li>
-                <li><a href="./canciones.html">Canciones</a></li>
-                <li><a href="./top.html">Top global</a></li>
-                <li><a href="./novedades.html">Novedades</a></li>
-                <li><a href="./generos.html">G√©neros</a></li>
+                <li><a href="./artistas.jsp">Artistas</a></li>
+                <li><a href="./albumes.jsp ">¡lbumes</a></li>
+                <li><a href="./canciones.jsp">Canciones</a></li>
+                <li><a href="./top.jsp">Top global</a></li>
+                <li><a href="./novedades.jsp">Novedades</a></li>
+                <li><a href="./generos.jsp">GÈneros</a></li>
             </ul>
         </nav>
         
@@ -31,20 +32,21 @@
 
     <main>
 
+
         <div class="cabecera">
 
-            <a href="index.jsp" class="volver">Volver al √≠ndice</a>
+            <a href="index.jsp" class="volver">Volver al Ìndice</a>
             <a href="login.html" class="login">Acceso</a>
-          
- <!----------------------B√öSQUEDA DIN√ÅMICA ---------------------->
-            <input type="text" placeholder="¬øQu√© quieres buscar?" id="buscador">
+ <!----------------------B⁄SQUEDA DIN¡ÅMICA ---------------------->
+            <input type="text" placeholder="øQuÈ quieres buscar?" id="buscador">
 
-            <h2 class="titulo-artistas">Artistas</h2>
+            <h2><i>GÈnero:</i> <span class="genero-titulo">RAP</span></h2>
 
         </div>
 
-<!------------------------ Listas din√°micas de artistas------------------------------->
+ <!------------------Filtro din·mico de m˙sica de gÈnero rap ----------->
         <div class="contenido">
+
 
             <section class="centro">
 
@@ -53,17 +55,17 @@
 
                     <div class="artista">
                         <img src="../imgs/" alt="">
-                        <p>nombre artista</p>
+                        <p>nombre ¡lbum</p>
                     </div>
 
                     <div class="artista">
                         <img src="../imgs/" alt="">
-                        <p>nombre artista</p>
+                        <p>nombre ¡lbum</p>
                     </div>
 
                     <div class="artista">
                         <img src="../imgs/" alt="">
-                        <p>nombre artista</p>
+                        <p>nombre ¡lbum</p>
                     </div>
 
                 </div>
@@ -73,20 +75,32 @@
 
                     <div class="artista">
                         <img src="../imgs/" alt="">
-                        <p>nombre artista</p>
+                        <p>nombre ¡lbum</p>
                     </div>
 
                     <div class="artista">
                         <img src="../imgs/" alt="">
-                        <p>nombre artista</p>
+                        <p>nombre ¡lbum</p>
                     </div>
 
                     <div class="artista">
                         <img src="../imgs/" alt="">
-                        <p>nombre artista</p>
+                        <p>nombre ¡lbum</p>
                     </div>
 
                 </div>
+
+            </section>
+<!------------------Filtro din·mico de los gÈneros ser· con un WHERE genero = 'Pop' / 'Rap' etc ----------->
+            <section class="filtros">
+
+                <h2>GÈneros</h2>
+
+                <a href="./generos.jsp">Pop</a>
+                <a href="./generorap.jsp">Rap</a>
+                <a href="./generoReggaeton.jsp">Reggaeton</a>
+                <a href="./generoTrap.jsp">Trap</a>
+                <a href="./generoR&B.jsp">R&B</a>
 
             </section>
 
@@ -99,7 +113,7 @@
         <div class="footer-content">
             <div>
                 <h4>Proyecto</h4>
-                <p>Sinfon√≠a Urbana</p>
+                <p>SinfonÌa Urbana</p>
             </div>
 
             <div>
