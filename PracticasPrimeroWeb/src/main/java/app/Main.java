@@ -10,13 +10,13 @@ public class Main {
 
 	public static void main(String[] args) throws SQLException {
 		// TODO Auto-generated method stub
-		String url = "jdbc:mysql://localhost:3306/musicaDB";
+		String url = "jdbc:mysql://localhost:3306/musica_db";
 		String user = "root";
 		String password = "admin";
 
 		Connection conn = DriverManager.getConnection(url, user, password);
 		
-		String query = "SELECT * FROM canciones";
+		String query = "SELECT * FROM usuarios";
 		
 		Statement stmt = conn.createStatement();
 		
@@ -24,13 +24,14 @@ public class Main {
 		
 		while (rs.next()) {
 			int id = rs.getInt("id");
-			String titulo = rs.getString("titulo");
-			String duracion = rs.getString("duracion");
+			String nickname = rs.getString("nickname");
+			
+			/*String duracion = rs.getString("duracion");
 			long reproducciones= rs.getLong("reproducciones");
-			java.sql.Date fecha = rs.getDate("fecha");
+			java.sql.Date fecha = rs.getDate("fecha");*/
 			
 
-			System.out.println(id + " - " + titulo + " - " + duracion + " - " + reproducciones + " - " + fecha);
+			System.out.println(id + " - " + nickname);
 		}
 	}
 
