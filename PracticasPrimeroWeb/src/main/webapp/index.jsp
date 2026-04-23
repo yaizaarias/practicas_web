@@ -34,7 +34,25 @@
     <main>
 
         <div class="cabecera">
-            <a href="login.html" class="login">Acceso</a>
+        
+			<% 	
+				String usuarioSesion = (String) session.getAttribute("usuario"); 
+				String mensajeSesion = (String) session.getAttribute("sesionIniciada");
+			%> 
+			
+			<% if (usuarioSesion != null) { %>
+    			<a href="logout" class="login">Cerrar sesión</a>
+			<% } else { %>
+    			<a href="login.jsp" class="login">Acceso</a>
+			<% } %>
+
+			<% if (mensajeSesion != null) { %>
+    			<p style="color: white; font-size: 10px; text-align: start; padding-top: 12px;">
+        			<%= mensajeSesion %>
+    			</p>
+			<% } %>
+			
+
  <!----------------------BÚSQUEDA DINÁMICA ---------------------->
  		 	<form action="buscar" method="GET">
      		    <input type="text"  name="query" placeholder="¿Qué quieres buscar?" id="buscador">
