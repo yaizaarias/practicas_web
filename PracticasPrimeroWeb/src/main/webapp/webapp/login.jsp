@@ -2,7 +2,7 @@
 <html lang="es">
 
 <head>
-    <title>Login - SinfonÃ­a Urbana</title>
+    <title>Login - Sinfonía Urbana</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Yaiza">
@@ -12,7 +12,7 @@
 <body>
 
     <header>
-        <h1>SinfonÃ­a Urbana</h1>
+        <h1>Sinfonía Urbana</h1>
     </header>
 
     <main>
@@ -20,19 +20,19 @@
 
         <div class="cabecera">
 
-            <a href="index.jsp" class="volver">Volver al Ã­ndice</a>
+            <a href="index.jsp" class="volver">Volver al índice</a>
             <h2 class="titulo-login">Acceso</h2>
 
         </div>
 
-<!--------------ValidaciÃ³n dinÃ¡mica para entrar en el modo administrador -------------------->
+<!--------------Validación dinámica para entrar en el modo administrador -------------------->
         <div class="login-container">
 
             <form class="login-form">
 
-                <input type="text" name="identificador" placeholder="Email o nickname" required>
+                <input type="text" placeholder="Usuario" required>
 
-                <input type="password" placeholder="ContraseÃƒÂ±a" required>
+                <input type="password" placeholder="ContraseÃ±a" required>
 
                 <button type="submit">Entrar</button>
 
@@ -46,7 +46,7 @@
         <div class="footer-content">
             <div>
                 <h4>Proyecto</h4>
-                <p>SinfonÃ­a Urbana</p>
+                <p>Sinfonía Urbana</p>
             </div>
 
             <div>
