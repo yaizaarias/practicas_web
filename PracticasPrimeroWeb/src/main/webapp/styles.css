@@ -51,7 +51,6 @@ nav a {
     border: none;
 }
 
-
 .contenido {
     display: flex;
     background: #8faeb2;
@@ -437,4 +436,40 @@ footer {
 
 .centro {
     padding: 30px;
+}
+
+.buscador-superior {
+    width: 900px;
+    max-width: 90%;
+    margin: 20px auto 10px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.buscador-superior .input-buscador {
+    flex: 1;
+    padding: 10px 14px;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    background: #f2f2f2;
+}
+
+.buscador-superior .boton-buscar {
+    width: 90px;
+    padding: 10px 0;
+    margin-bottom: 0;
+    border: none;
+    border-radius: 6px;
+    background-color: #2c2c2c;
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.buscador-superior .boton-buscar:hover {
+    background-color: #444;
 }

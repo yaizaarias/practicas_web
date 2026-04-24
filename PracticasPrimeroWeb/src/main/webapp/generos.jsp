@@ -50,7 +50,12 @@
 			<% } %>
 			
  <!----------------------BÚSQUEDA DINÁMICA ---------------------->
-            <input type="text" placeholder="¿Qué quieres buscar?" id="buscador">
+            <form class="buscador-superior" action="buscarPorGenero" method="post">
+                <input type="text" name="query" placeholder="¿Qué quieres buscar?" class="input-buscador">
+                <button type="submit" class="boton-buscar">Buscar</button>
+            </form>
+            <br>
+            <br>
 
             <h2><i>Género:</i> <span class="genero-titulo">POP</span></h2>
 

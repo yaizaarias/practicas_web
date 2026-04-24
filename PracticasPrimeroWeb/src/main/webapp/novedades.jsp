@@ -50,7 +50,11 @@
 			<% } %>
 			
  <!----------------------BÚSQUEDA DINÁMICA ---------------------->
-            <input type="text" placeholder="¿Qué quieres buscar?" id="buscador">
+            <form class="buscador-superior" action="buscarCancion" method="post">
+                <input type="text" name="query" placeholder="¿Qué quieres buscar?" class="input-buscador">
+                <button type="submit" class="boton-buscar">Buscar</button>
+            </form>
+
 
             <h2 class="titulo-novedades">Novedades</h2>
             <h3 class="subtitulo-novedades">ÚLTIMOS LANZAMIENTOS</h3>
