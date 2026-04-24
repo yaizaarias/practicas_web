@@ -1,13 +1,15 @@
 package app.servlets;
 
 import java.io.IOException;
+
 import java.sql.Connection;
-import java.sql.DriverManager;
+import javax.sql.DataSource;
+import javax.naming.Context;
+import javax.naming.InitialContext;
 
 import app.Usuario;
 import app.dao.UsuarioDAO;
 import app.dao.impl.UsuarioDAOImpl;
-import java.sql.Connection;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
@@ -28,15 +30,14 @@ public class LoginServlet extends HttpServlet {
         String identificador = request.getParameter("identificador");
         String contrasena = request.getParameter("contrasena");
         
-        String url = "jdbc:mysql://localhost:3306/musica_db";
-		String user = "root";
-		String password = "admin";
-        
         Connection conn = null;
         
         try {
-        	Class.forName("com.mysql.cj.jdbc.Driver");
-        	conn = DriverManager.getConnection(url, user, password);
+        	
+        	Context initCtx = new InitialContext();
+        	Context envCtx = (Context) initCtx.lookup("java:comp/env");
+        	DataSource ds = (DataSource) envCtx.lookup("jdbc/musica_db");
+        	conn = ds.getConnection();
 
             UsuarioDAO usuarioDAO = new UsuarioDAOImpl(conn);
             Usuario usuario = usuarioDAO.login(identificador, contrasena);

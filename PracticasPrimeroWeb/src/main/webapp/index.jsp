@@ -19,12 +19,12 @@
 
         <nav>
             <ul>
-                <li><a href="./artistas.html">Artistas</a></li>
-				<li><a href="./albumes.html">Álbumes</a></li>
-				<li><a href="./canciones.html">Canciones</a></li>
-				<li><a href="./top.html">Top global</a></li>
-				<li><a href="./novedades.html">Novedades</a></li>
-				<li><a href="./generos.html">Géneros</a></li>
+                <li><a href="./artistas.jsp">Artistas</a></li>
+				<li><a href="./albumes.jsp">Álbumes</a></li>
+				<li><a href="./canciones.jsp">Canciones</a></li>
+				<li><a href="./top.jsp">Top global</a></li>
+				<li><a href="./novedades.jsp">Novedades</a></li>
+				<li><a href="./generos.jsp">Géneros</a></li>
             </ul>
         </nav>
       
