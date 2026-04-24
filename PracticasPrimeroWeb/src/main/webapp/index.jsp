@@ -54,11 +54,13 @@
 			
 
  <!----------------------BÚSQUEDA DINÁMICA ---------------------->
- 		 	<form action="buscar" method="GET">
-     		    <input type="text"  name="query" placeholder="¿Qué quieres buscar?" id="buscador">
-    		</form>
+ 		 	<form class="buscador-superior" action="buscarArtista" method="post">
+                <input type="text" name="query" placeholder="¿Qué quieres buscar?" class="input-buscador">
+                <button type="submit" class="boton-buscar">Buscar</button>
+            </form>
 
             <p>Descubre música y la información de tus artistas favoritos con un solo click!</p>
+    
         </div>
 
         <div class="contenido">

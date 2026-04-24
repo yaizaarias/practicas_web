@@ -20,7 +20,7 @@
         <nav>
             <ul>
                 <li><a href="./artistas.jsp">Artistas</a></li>
-                <li><a href="./albumes.jsp">Ãlbumes</a></li>
+                <li><a href="./albumes.jsp">Álbumes</a></li>
                 <li><a href="./canciones.jsp">Canciones</a></li>
                 <li><a href="./top.jsp">Top global</a></li>
                 <li><a href="./novedades.jsp">Novedades</a></li>
@@ -48,7 +48,10 @@
 			
             <!----------------------BÚSQUEDA DINÁMICA ---------------------->
 
-            <input type="text" placeholder="¿Qué quieres buscar? " id="buscador">
+            <form class="buscador-superior" action="buscarArtista" method="post">
+                <input type="text" name="query" placeholder="¿Qué quieres buscar?" class="input-buscador">
+                <button type="submit" class="boton-buscar">Buscar</button>
+            </form>
             <br>
             <br>
 
