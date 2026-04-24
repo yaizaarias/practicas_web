@@ -133,7 +133,7 @@
                     <option value="todos">Todos</option>
                     <option value="2020-2026">2020-2026</option>
                     <option value="2010-2020">2010-2020</option>
-                    <option value="MasAntiguo"> Más antiguo</optiom>
+                    <option value="MasAntiguo"> Más antiguo</option>
                 </select>
 
 
