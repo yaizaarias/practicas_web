@@ -1,9 +1,11 @@
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
-    <meta name="description" content="Sinfonía Urbana">
+    <meta name="description" content="SinfonÃ­a Urbana">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Cristina">
     <link rel="stylesheet" href="styles.css">
@@ -18,7 +20,7 @@
         <nav>
             <ul>
                 <li><a href="./artistas.jsp">Artistas</a></li>
-                <li><a href="./albumes.jsp">Álbumes</a></li>
+                <li><a href="./albumes.jsp">Ãlbumes</a></li>
                 <li><a href="./canciones.jsp">Canciones</a></li>
                 <li><a href="./top.jsp">Top global</a></li>
                 <li><a href="./novedades.jsp">Novedades</a></li>
@@ -32,9 +34,19 @@
     <main class="detalles">
         <div class="cabecera">
 
-            <a href="index.jsp" class="volver">Volver al índice</a>
-            <a href="login.jsp" class="login">Acceso</a>
-            <!----------------------BÚSQUEDA DINÁMICA ---------------------->
+            <a href="./index.jsp" class="volver">Volver al índice</a>
+            
+            <% 	
+				String usuarioSesion = (String) session.getAttribute("usuario"); 
+			%> 
+			
+            <% if (usuarioSesion != null) { %>
+    			<a href="logout" class="login">Cerrar sesión</a>
+			<% } else { %>
+    			<a href="login.jsp" class="login">Acceso</a>
+			<% } %>
+			
+            <!----------------------BÚSQUEDA DINÁMICA ---------------------->
 
             <input type="text" placeholder="¿Qué quieres buscar? " id="buscador">
             <br>
@@ -54,7 +66,7 @@
             </div>
 
             <div class="artistaInfo">
-                <h2 class="titulo-info">⭐ NOMBRE DEL ARTISTA ⭐</h2>
+                <h2 class="titulo-info">✨ NOMBRE DEL ARTISTA ✨</h2>
                 <br>
                 <img src="../imgs/" alt="">
                 <p>

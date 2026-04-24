@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -30,8 +32,19 @@
 
 
         <div class="cabecera">
-            <a href="login.jsp" class="login">Acceso</a>
-            <a href="index.jsp" class="volver">Volver al índice</a>
+        
+            <a href="./index.jsp" class="volver">Volver al índice</a>
+            
+            <% 	
+				String usuarioSesion = (String) session.getAttribute("usuario"); 
+			%> 
+			
+            <% if (usuarioSesion != null) { %>
+    			<a href="logout" class="login">Cerrar sesión</a>
+			<% } else { %>
+    			<a href="login.jsp" class="login">Acceso</a>
+			<% } %>
+			
  <!----------------------BÚšSQUEDA DINÁMICA ---------------------->
             <input type="text" placeholder="¿Qué quieres buscar?" id="buscador">
         </div>
