@@ -36,7 +36,7 @@ public class LoginServlet extends HttpServlet {
         	
         	Context initCtx = new InitialContext();
         	Context envCtx = (Context) initCtx.lookup("java:comp/env");
-        	DataSource ds = (DataSource) envCtx.lookup("jdbc/musica_db");
+        	DataSource ds = (DataSource) envCtx.lookup("jdbc/musicaDB");
         	conn = ds.getConnection();
 
             UsuarioDAO usuarioDAO = new UsuarioDAOImpl(conn);
