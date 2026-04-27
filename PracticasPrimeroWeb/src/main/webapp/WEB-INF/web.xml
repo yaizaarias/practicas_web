@@ -44,15 +44,6 @@
 		<url-pattern>/AlbumServlet</url-pattern>
 	</servlet-mapping>
 
-	<servlet>
-		<servlet-name>BuscarServletsIndex</servlet-name>
-		<servlet-class>app.servlets.BuscarServletsIndex</servlet-class>
-	</servlet>
-
-	<servlet-mapping>
-		<servlet-name>BuscarServletsIndex</servlet-name>
-		<url-pattern>/BuscarServletsIndex</url-pattern>
-	</servlet-mapping>
 
 	<welcome-file-list>
 		<welcome-file>index.jsp</welcome-file>

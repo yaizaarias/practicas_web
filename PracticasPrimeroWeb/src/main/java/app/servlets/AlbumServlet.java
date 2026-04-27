@@ -19,7 +19,7 @@ public class AlbumServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
         String titulo = request.getParameter("titulo");
@@ -35,15 +35,15 @@ public class AlbumServlet extends HttpServlet {
             List<Albumes> lista;
 
             if (titulo != null && !titulo.isEmpty()) {
-
                 lista = albumDAO.search(titulo);
-
             } else {
                 lista = albumDAO.findAll();
             }
 
             request.setAttribute("albumes", lista);
-            request.getRequestDispatcher("/albumes.jsp").forward(request, response);
+
+            request.getRequestDispatcher("/albumes.jsp")
+                   .forward(request, response);
 
         } catch (Exception e) {
             e.printStackTrace();

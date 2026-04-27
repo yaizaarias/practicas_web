@@ -56,7 +56,7 @@
 			%>
 
 			<!---------------------- BÚSQUEDA DINÁMICA ---------------------->
-			<form action="AlbumServlet" method="get">
+			<form action="AlbumServlet" method="post">
 				<input type="text" name="titulo" placeholder="¿Qué quieres buscar?">
 				<button type="submit">Buscar</button>
 			</form>
