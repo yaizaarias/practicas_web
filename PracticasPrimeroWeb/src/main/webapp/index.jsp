@@ -56,8 +56,13 @@
  <!----------------------BÚSQUEDA DINÁMICA ---------------------->
  		 	<form class="buscador-superior" action="buscarArtista" method="post">
                 <input type="text" name="query" placeholder="¿Qué quieres buscar?" class="input-buscador">
+                <input type="hidden" name="origen" value="index">
                 <button type="submit" class="boton-buscar">Buscar</button>
             </form>
+            
+            <p class="mensaje-error">
+    			<%= request.getAttribute("errorBusqueda") != null ? request.getAttribute("errorBusqueda") : "" %>
+			</p>
 
             <p>Descubre música y la información de tus artistas favoritos con un solo click!</p>
     

@@ -49,9 +49,15 @@
           
  <!----------------------BÚSQUEDA DINÁMICA ---------------------->
             <form class="buscador-superior" action="buscarArtista" method="post">
-                <input type="text" name="query" placeholder="¿Qué quieres buscar?" class="input-buscador">
-                <button type="submit" class="boton-buscar">Buscar</button>
-            </form>
+    			<input type="text" name="query" placeholder="¿Qué quieres buscar?" class="input-buscador">
+    			<input type="hidden" name="origen" value="artistas">
+    			<button type="submit" class="boton-buscar">Buscar</button>
+			</form>
+
+			<p class="mensaje-error">
+    			<%= request.getAttribute("errorBusqueda") != null ? request.getAttribute("errorBusqueda") : "" %>
+			</p>
+			
             <br>
             <br>
 

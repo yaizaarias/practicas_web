@@ -10,7 +10,6 @@ import javax.sql.DataSource;
 
 import app.Artista;
 import app.Cancion;
-import app.dao.ArtistaDAO;
 import app.dao.impl.ArtistaDAOImpl;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
@@ -26,14 +25,11 @@ public class BuscarArtistaServlet extends HttpServlet {
             throws ServletException, IOException {
 
         String query = request.getParameter("query");
+        String origen = request.getParameter("origen");
+        String artistaActualIdStr = request.getParameter("artistaActualId");
         Connection conn = null;
 
         try {
-            if (query == null || query.trim().isEmpty()) {
-                request.setAttribute("errorBusqueda", "Escribe el nombre de un artista para iniciar una búsqueda");
-                request.getRequestDispatcher("/artistas.jsp").forward(request, response);
-                return;
-            }
 
             Context initCtx = new InitialContext();
             Context envCtx = (Context) initCtx.lookup("java:comp/env");
@@ -41,18 +37,24 @@ public class BuscarArtistaServlet extends HttpServlet {
             conn = ds.getConnection();
 
             ArtistaDAOImpl artistaDAO = new ArtistaDAOImpl(conn);
+            
+            if (query == null || query.trim().isEmpty()) {
+            	volverConError(request, response, artistaDAO, origen, artistaActualIdStr,
+                        "Escribe el nombre de un artista");
+                return;
+            }
 
-            Artista artista = artistaDAO.findByNombre(query.trim());
+            Artista artistaBuscado = artistaDAO.findByNombre(query.trim());
 
-            if (artista != null) {
-                List<Cancion> canciones = artistaDAO.findCancionesByArtista(artista.getId());
+            if (artistaBuscado != null) {
+                List<Cancion> canciones = artistaDAO.findCancionesByArtista(artistaBuscado.getId());
 
-                request.setAttribute("artista", artista);
+                request.setAttribute("artista", artistaBuscado);
                 request.setAttribute("canciones", canciones);
                 request.getRequestDispatcher("/infoArtista.jsp").forward(request, response);
             } else {
-                request.setAttribute("errorBusqueda", "No se ha encontrado ningún artista");
-                request.getRequestDispatcher("/artistas.jsp").forward(request, response);
+            	volverConError(request, response, artistaDAO, origen, artistaActualIdStr,
+                        "No se ha encontrado ningún artista con ese nombre");
             }
 
         } catch (Exception e) {
@@ -67,4 +69,34 @@ public class BuscarArtistaServlet extends HttpServlet {
             }
         }
     }
-}
+    
+    private void volverConError(HttpServletRequest request, HttpServletResponse response,
+            ArtistaDAOImpl artistaDAO, String origen, String artistaActualIdStr,
+            String mensaje) throws ServletException, IOException {
+
+    	request.setAttribute("errorBusqueda", mensaje);
+
+    	if ("infoArtista".equals(origen) && artistaActualIdStr != null && !artistaActualIdStr.isEmpty()) {
+    		try {
+    			int artistaActualId = Integer.parseInt(artistaActualIdStr);
+
+    			Artista artistaActual = artistaDAO.findById(artistaActualId);
+    			List<Cancion> cancionesActuales = artistaDAO.findCancionesByArtista(artistaActualId);
+
+    			request.setAttribute("artista", artistaActual);
+    			request.setAttribute("canciones", cancionesActuales);
+    			request.getRequestDispatcher("/infoArtista.jsp").forward(request, response);
+    			return;
+
+    		} catch (NumberFormatException e) {
+    			e.printStackTrace();
+    		}
+    	}
+
+    	if ("index".equals(origen)) {
+    		request.getRequestDispatcher("/index.jsp").forward(request, response);
+    	} else {
+    		request.getRequestDispatcher("/artistas.jsp").forward(request, response);
+    	}
+    }
+   }

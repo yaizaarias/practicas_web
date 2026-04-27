@@ -8,7 +8,6 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 
 import app.Usuario;
-import app.dao.UsuarioDAO;
 import app.dao.impl.UsuarioDAOImpl;
 
 import jakarta.servlet.ServletException;
