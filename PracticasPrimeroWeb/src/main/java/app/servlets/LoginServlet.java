@@ -47,7 +47,7 @@ public class LoginServlet extends HttpServlet {
                 sesion.setAttribute("email", usuario.getEmail());
                 sesion.setAttribute("rol", usuario.getRol()); 
                 sesion.setAttribute("sesionIniciada", "Sesion iniciada en " + usuario.getNickname());
-                response.sendRedirect(request.getContextPath() + "/index.jsp");
+                response.sendRedirect(request.getContextPath() + "/inicio");
                 
             } else {
                 request.setAttribute("error", "ERROR: Usuario o contraseña incorrectos");
