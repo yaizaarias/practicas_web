@@ -35,9 +35,10 @@ public class AlbumServlet extends HttpServlet {
             List<Albumes> lista;
 
             if (titulo != null && !titulo.isEmpty()) {
-                lista = albumDAO.findByTitulo(titulo);
-            } else {
 
+                lista = albumDAO.search(titulo);
+
+            } else {
                 lista = albumDAO.findAll();
             }
 

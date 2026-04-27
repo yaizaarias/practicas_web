@@ -55,31 +55,30 @@
 			<%
 			if (mensajeSesion != null) {
 			%>
-			<p
-				style="color: white; font-size: 10px; text-align: start; padding-top: 12px;">
+			<p style="color: white; font-size: 10px; text-align: start; padding-top: 12px;">
 				<%=mensajeSesion%>
 			</p>
 			<%
 			}
 			%>
 
+			<!---------------------- BÚSQUEDA DINÁMICA ---------------------->
+			<form action="BuscarServletsIndex" method="get">
 
-			<!----------------------BÚSQUEDA DINÁMICA ---------------------->
-			<form class="buscador-superior" action="buscar" method="get">
-				<input type="text" name="query"
-					placeholder="¿ Qué quieres buscar? "
-					class="input-buscador">
-				<button type="submit" class="boton-buscar">Buscar</button>
+				<input type="text" name="q"
+					value="<%= request.getParameter("q") != null ? request.getParameter("q") : "" %>"
+					placeholder="Buscar artistas, álbumes, canciones">
+
+				<button type="submit">Buscar</button>
+
 			</form>
 
-			<p>Descubre música y la información de tus artistas favoritos con
-				un solo click!</p>
+			<p>Descubre música y la información de tus artistas favoritos con un solo click!</p>
 
 		</div>
 
 		<div class="contenido">
 
-			<!------------------------ Listas dinámicas de artistas------------------------------->
 			<section class="centro">
 
 				<h2>Artistas más buscados</h2>
@@ -115,7 +114,6 @@
 
 			</section>
 
-			<!--------------------------- Filtros dinámicos-------------------------------------->
 			<section class="filtros">
 
 				<h2>Filtros</h2>
@@ -151,7 +149,6 @@
 					<option value="2010-2020">2010-2020</option>
 					<option value="MasAntiguo">Más antiguo</option>
 				</select>
-
 
 				<button onclick="filtrar()">Aplicar filtros</button>
 

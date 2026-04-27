@@ -1,4 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="java.util.List" %>
+<%@ page import="app.Albumes" %>
 
 <!DOCTYPE html>
 <html lang="es">
@@ -33,76 +35,67 @@
 
 	<main>
 
-
 		<div class="cabecera">
 
 			<a href="index.jsp" class="volver">Volver al índice</a>
 
-			<% String usuarioSesion=(String) session.getAttribute("usuario"); %>
+			<%
+			String usuarioSesion = (String) session.getAttribute("usuario");
+			%>
 
-			<% if (usuarioSesion !=null) { %>
+			<%
+			if (usuarioSesion != null) {
+			%>
 			<a href="logout" class="login">Cerrar sesión</a>
-			<% } else { %>
+			<%
+			} else {
+			%>
 			<a href="login.jsp" class="login">Acceso</a>
-			<% } %>
+			<%
+			}
+			%>
 
-			<!----------------------BÚSQUEDA DINÁMICA ---------------------->
-			<form class="buscador-superior" action="AlbumServlet" method="get">
-				<input type="text" name="titulo" placeholder="¿Qué quieres buscar?"
-					class="input-buscador">
-				<button type="submit" class="boton-buscar">Buscar</button>
+			<!---------------------- BÚSQUEDA DINÁMICA ---------------------->
+			<form action="AlbumServlet" method="get">
+				<input type="text" name="titulo" placeholder="¿Qué quieres buscar?">
+				<button type="submit">Buscar</button>
 			</form>
 
-			<br>
-			<br>
+			<br><br>
 
 			<h2 class="titulo-artistas">Álbumes</h2>
 
 		</div>
 
-		<!------------------------ Listas dinámicas de Álbumes------------------------------->
+		<!------------------------ LISTA DINÁMICA ------------------------------>
 		<div class="contenido">
-
 
 			<section class="centro">
 
-
 				<div class="artistas">
 
-					<div class="artista">
-						<img src="../imgs/" alt="">
-						<p>nombre Álbum</p>
-					</div>
+					<%
+					List<Albumes> albumes = (List<Albumes>) request.getAttribute("albumes");
+
+					if (albumes != null && !albumes.isEmpty()) {
+					    for (Albumes a : albumes) {
+					%>
 
 					<div class="artista">
 						<img src="../imgs/" alt="">
-						<p>nombre Álbum</p>
+						<p><%= a.getTitulo() %></p>
 					</div>
 
-					<div class="artista">
-						<img src="../imgs/" alt="">
-						<p>nombre Álbum</p>
-					</div>
+					<%
+					    }
+					} else {
+					%>
 
-				</div>
+					<p>No hay álbumes disponibles</p>
 
-
-				<div class="artistas">
-
-					<div class="artista">
-						<img src="../imgs/" alt="">
-						<p>nombre Álbum</p>
-					</div>
-
-					<div class="artista">
-						<img src="../imgs/" alt="">
-						<p>nombre Álbum</p>
-					</div>
-
-					<div class="artista">
-						<img src="../imgs/" alt="">
-						<p>nombre Álbum</p>
-					</div>
+					<%
+					}
+					%>
 
 				</div>
 
@@ -111,7 +104,6 @@
 		</div>
 
 	</main>
-
 
 	<footer>
 		<div class="footer-content">
