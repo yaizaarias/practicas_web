@@ -1,8 +1,10 @@
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+
 <!DOCTYPE html>
 <html lang="es">
 
 <head>
-    <title>Novedades - SinfonÌa Urbana</title>
+    <title>Novedades - Sinfon√≠a Urbana</title>
     <meta charset="UTF-8">
     <meta name="description" content="Novedades">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,16 +16,16 @@
 
 
     <header>
-        <h1>SinfonÌa Urbana</h1>
+        <h1>Sinfon√≠a Urbana</h1>
 
         <nav>
             <ul>
                 <li><a href="./artistas.jsp">Artistas</a></li>
-                <li><a href="./albumes.jsp">¡lbumes</a></li>
+                <li><a href="./albumes.jsp">√Ålbumes</a></li>
                 <li><a href="./canciones.jsp">Canciones</a></li>
                 <li><a href="./top.jsp">Top global</a></li>
                 <li><a href="./novedades.jsp">Novedades</a></li>
-                <li><a href="./generos.jsp">GÈneros</a></li>
+                <li><a href="./generos.jsp">G√©neros</a></li>
             </ul>
         </nav>
 
@@ -35,16 +37,30 @@
 
         <div class="cabecera">
 
-            <a href="login.jsp" class="login">Acceso</a>
-            <a href="index.jsp" class="volver">Volver al Ìndice</a>
- <!----------------------B⁄SQUEDA DIN¡MICA ---------------------->
-            <input type="text" placeholder="øQuÈ quieres buscar?" id="buscador">
+            <a href="./index.jsp" class="volver">Volver al √≠ndice</a>
+            
+            <% 	
+				String usuarioSesion = (String) session.getAttribute("usuario"); 
+			%> 
+			
+            <% if (usuarioSesion != null) { %>
+    			<a href="logout" class="login">Cerrar sesi√≥n</a>
+			<% } else { %>
+    			<a href="login.jsp" class="login">Acceso</a>
+			<% } %>
+			
+ <!----------------------B√öSQUEDA DIN√ÅMICA ---------------------->
+            <form class="buscador-superior" action="buscarCancion" method="post">
+                <input type="text" name="query" placeholder="¬øQu√© quieres buscar?" class="input-buscador">
+                <button type="submit" class="boton-buscar">Buscar</button>
+            </form>
+
 
             <h2 class="titulo-novedades">Novedades</h2>
-            <h3 class="subtitulo-novedades">⁄LTIMOS LANZAMIENTOS</h3>
+            <h3 class="subtitulo-novedades">√öLTIMOS LANZAMIENTOS</h3>
 
         </div>
-<!----------- Listado din·mico de ˙ltimos ·lbumes ordenados por fecha de m·s reciente a antigua ---------->
+<!----------- Listado din√°mico de √∫ltimos √°lbumes ordenados por fecha de m√°s reciente a antigua ---------->
         <div class="contenido">
 
             <section class="centro">
@@ -53,25 +69,25 @@
 
                     <div class="artista">
                         <img src="../imgs/" alt="">
-                        <p>nombre ¡lbum</p>
+                        <p>nombre √Ålbum</p>
                         <p class="fecha">fecha lanzamiento</p>
                     </div>
 
                     <div class="artista">
                         <img src="../imgs/" alt="">
-                        <p>nombre ¡lbum</p>
+                        <p>nombre √Ålbum</p>
                         <p class="fecha">fecha lanzamiento</p>
                     </div>
 
                     <div class="artista">
                         <img src="../imgs/" alt="">
-                        <p>nombre ¡lbum</p>
+                        <p>nombre √Ålbum</p>
                         <p class="fecha">fecha lanzamiento</p>
                     </div>
 
                     <div class="artista">
                         <img src=".../imgs/" alt="">
-                        <p>nombre ¡lbum</p>
+                        <p>nombre √Ålbum</p>
                         <p class="fecha">fecha lanzamiento</p>
                     </div>
 
@@ -88,7 +104,7 @@
         <div class="footer-content">
             <div>
                 <h4>Proyecto</h4>
-                <p>SinfonÌa Urbana</p>
+                <p>Sinfon√≠a Urbana</p>
             </div>
 
             <div>

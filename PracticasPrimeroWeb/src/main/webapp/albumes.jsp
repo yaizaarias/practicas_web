@@ -1,116 +1,130 @@
-<!DOCTYPE html>
-<html lang="es">
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 
-<head>
-    <title>Album - SinfonÌa Urbana</title>
-    <meta charset="UTF-8">
-    <meta name="description" content="Artistas musicales">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="author" content="Yaiza">
-    <link rel="stylesheet" href="styles.css">
-</head>
+    <!DOCTYPE html>
+    <html lang="es">
 
-<body>
+    <head>
+        <title>Album - Sinfon√≠a Urbana</title>
+        <meta charset="UTF-8">
+        <meta name="description" content="Artistas musicales">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Yaiza">
+        <link rel="stylesheet" href="styles.css">
+    </head>
 
-    <header>
-        <h1>SinfonÌa Urbana</h1>
+    <body>
 
-        <nav>
-            <ul>
-                <li><a href="./artistas.jsp">Artistas</a></li>
-                <li><a href="./albumes.jsp">¡lbumes</a></li>
-                <li><a href="./canciones.jsp">Canciones</a></li>
-                <li><a href="./top.jsp">Top global</a></li>
-                <li><a href="./novedades.jsp">Novedades</a></li>
-                <li><a href="./generos.jsp">GÈneros</a></li>
-            </ul>
-        </nav>
-        
-        <hr>
-    </header>
+        <header>
+            <h1>Sinfon√≠a Urbana</h1>
 
-    <main>
+            <nav>
+                <ul>
+                    <li><a href="./artistas.jsp">Artistas</a></li>
+                    <li><a href="./albumes.jsp">√Ålbumes</a></li>
+                    <li><a href="./canciones.jsp">Canciones</a></li>
+                    <li><a href="./top.jsp">Top global</a></li>
+                    <li><a href="./novedades.jsp">Novedades</a></li>
+                    <li><a href="./generos.jsp">G√©neros</a></li>
+                </ul>
+            </nav>
 
-        
-        <div class="cabecera">
+            <hr>
+        </header>
 
-            <a href="index.jsp" class="volver">Volver al Ìndice</a>
-            <a href="login.jsp" class="login">Acceso</a>
-           <!----------------------B⁄SQUEDA DIN¡MICA ---------------------->
-
-            <input type="text" placeholder="øQuÈ quieres buscar?" id="buscador">
-
-            <h2 class="titulo-artistas">¡lbumes</h2>
-
-        </div>
-
-      <!------------------------ Listas din·micas de ¡lbumes------------------------------->
-        <div class="contenido">
-
-         
-            <section class="centro">
+        <main>
 
 
-                <div class="artistas">
+            <div class="cabecera">
 
-                    <div class="artista">
-                        <img src="../imgs/" alt="">
-                        <p>nombre ¡lbum</p>
-                    </div>
+                <a href="index.jsp" class="volver">Volver al √≠ndice</a>
 
-                    <div class="artista">
-                        <img src="../imgs/" alt="">
-                        <p>nombre ¡lbum</p>
-                    </div>
+                <% String usuarioSesion=(String) session.getAttribute("usuario"); %>
 
-                    <div class="artista">
-                        <img src="../imgs/" alt="">
-                        <p>nombre ¡lbum</p>
-                    </div>
+                    <% if (usuarioSesion !=null) { %>
+                        <a href="logout" class="login">Cerrar sesi√≥n</a>
+                    <% } else { %>
+                        <a href="login.jsp" class="login">Acceso</a>
+                    <% } %>
 
-                </div>
+            <!----------------------B√öSQUEDA DIN√ÅMICA ---------------------->
+                    <form class="buscador-superior" action="buscarAlbum" method="post">
+                        <input type="text" name="query" placeholder="¬øQu√© quieres buscar?" class="input-buscador">
+                        <button type="submit" class="boton-buscar">Buscar</button>
+                    </form>
+                    <br>
+                    <br>
 
+                                <h2 class="titulo-artistas">√Ålbumes</h2>
 
-                <div class="artistas">
-
-                    <div class="artista">
-                        <img src="../imgs/" alt="">
-                        <p>nombre ¡lbum</p>
-                    </div>
-
-                    <div class="artista">
-                        <img src="../imgs/" alt="">
-                        <p>nombre ¡lbum</p>
-                    </div>
-
-                    <div class="artista">
-                        <img src="../imgs/" alt="">
-                        <p>nombre ¡lbum</p>
-                    </div>
-
-                </div>
-
-            </section>
-
-        </div>
-
-    </main>
-
-
-    <footer>
-        <div class="footer-content">
-            <div>
-                <h4>Proyecto</h4>
-                <p>SinfonÌa Urbana</p>
             </div>
 
-            <div>
-                <h4>Contacto</h4>
-                <p>yaiza5arias@gmail.com</p>
+            <!------------------------ Listas din√°micas de √Ålbumes------------------------------->
+            <div class="contenido">
+
+
+                <section class="centro">
+
+
+                    <div class="artistas">
+
+                        <div class="artista">
+                            <img src="../imgs/" alt="">
+                            <p>nombre √Ålbum</p>
+                        </div>
+
+                        <div class="artista">
+                            <img src="../imgs/" alt="">
+                            <p>nombre √Ålbum</p>
+                        </div>
+
+                        <div class="artista">
+                            <img src="../imgs/" alt="">
+                            <p>nombre √Ålbum</p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="artistas">
+
+                        <div class="artista">
+                            <img src="../imgs/" alt="">
+                            <p>nombre √Ålbum</p>
+                        </div>
+
+                        <div class="artista">
+                            <img src="../imgs/" alt="">
+                            <p>nombre √Ålbum</p>
+                        </div>
+
+                        <div class="artista">
+                            <img src="../imgs/" alt="">
+                            <p>nombre √Ålbum</p>
+                        </div>
+
+                    </div>
+
+                </section>
+
             </div>
-        </div>
-    </footer>
 
-</body>
+        </main>
 
-</html>
+
+        <footer>
+            <div class="footer-content">
+                <div>
+                    <h4>Proyecto</h4>
+                    <p>Sinfon√≠a Urbana</p>
+                </div>
+
+                <div>
+                    <h4>Contacto</h4>
+                    <p>yaiza5arias@gmail.com</p>
+                </div>
+            </div>
+        </footer>
+
+    </body>
+
+    </html>

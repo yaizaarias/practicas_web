@@ -21,7 +21,7 @@ public class ArtistaDAOImpl implements ArtistaDAO {
         List<Artista> lista = new ArrayList<>();
 
         try {
-            String sql = "SELECT * FROM artista";
+            String sql = "SELECT * FROM artistas";
             Statement stmt = conn.createStatement();
             ResultSet rs = stmt.executeQuery(sql);
 
@@ -45,13 +45,44 @@ public class ArtistaDAOImpl implements ArtistaDAO {
 
         return lista;
     }
+    
+    @Override
+    public Artista findByNombre(String nombre) {
+        Artista a = null;
+
+        try {
+            String sql = "SELECT * FROM artistas WHERE LOWER(TRIM(nombre)) = LOWER(?)";
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setString(1, nombre.trim());
+
+            ResultSet rs = ps.executeQuery();
+
+            if (rs.next()) {
+                a = new Artista(
+                    rs.getInt("id"),
+                    rs.getString("nombre"),
+                    rs.getInt("edad"),
+                    rs.getString("pais"),
+                    rs.getString("productor"),
+                    rs.getInt("oyentes_mensuales"),
+                    rs.getString("biografia"),
+                    rs.getString("genero")
+                );
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return a;
+    }
 
     @Override
     public Artista findById(int id) {
         Artista a = null;
 
         try {
-            String sql = "SELECT * FROM artista WHERE id = ?";
+            String sql = "SELECT * FROM artistas WHERE id = ?";
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.setInt(1, id);
 
@@ -64,7 +95,7 @@ public class ArtistaDAOImpl implements ArtistaDAO {
                         rs.getInt("edad"),
                         rs.getString("pais"),
                         rs.getString("productor"),
-                        rs.getInt("oyentesMensuales"),
+                        rs.getInt("oyentes_mensuales"),
                         rs.getString("biografia"),
                         rs.getString("genero")
                 );
@@ -80,7 +111,7 @@ public class ArtistaDAOImpl implements ArtistaDAO {
     @Override
     public void insert(Artista a) {
         try {
-            String sql = "INSERT INTO artista(nombre, edad, pais, productor, oyentesMensuales, biografia, genero) VALUES (?,?,?,?,?,?,?)";
+            String sql = "INSERT INTO artistas(nombre, edad, pais, productor, oyentes_mensuales, biografia, genero) VALUES (?,?,?,?,?,?,?)";
             PreparedStatement ps = conn.prepareStatement(sql);
 
             ps.setString(1, a.getNombre());
@@ -101,7 +132,7 @@ public class ArtistaDAOImpl implements ArtistaDAO {
     @Override
     public void update(Artista a) {
         try {
-            String sql = "UPDATE artista SET nombre=?, edad=?, pais=?, productor=?, oyentesMensuales=?, biografia=?, genero=? WHERE id=?";
+            String sql = "UPDATE artistas SET nombre=?, edad=?, pais=?, productor=?, oyentes_mensuales=?, biografia=?, genero=? WHERE id=?";
             PreparedStatement ps = conn.prepareStatement(sql);
 
             ps.setString(1, a.getNombre());
@@ -123,7 +154,7 @@ public class ArtistaDAOImpl implements ArtistaDAO {
     @Override
     public void delete(int id) {
         try {
-            String sql = "DELETE FROM artista WHERE id=?";
+            String sql = "DELETE FROM artistas WHERE id=?";
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.setInt(1, id);
 
@@ -141,7 +172,7 @@ public class ArtistaDAOImpl implements ArtistaDAO {
         try {
             String sql = """
                 SELECT c.*
-                FROM cancion c
+                FROM canciones c
 
                 INNER JOIN artista_cancion ac ON c.id = ac.id_cancion
                 
