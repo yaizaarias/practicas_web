@@ -18,4 +18,10 @@ public interface AlbumDAO {
     void update(Albumes a);
 
     void delete(int id);
+
+	List<Albumes> findByTitulo(String titulo);
+	
+	List<Albumes> search(String query);
+	
+	
 }
