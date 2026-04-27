@@ -101,7 +101,7 @@ public class BuscarArtistaServlet extends HttpServlet {
     	}
 
     	if ("index".equals(origen)) {
-    		request.getRequestDispatcher("/index.jsp").forward(request, response);
+    		response.sendRedirect(request.getContextPath() + "/inicio");
     	} else {
     		request.getRequestDispatcher("/artistas.jsp").forward(request, response);
     	}

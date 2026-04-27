@@ -1,5 +1,12 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 
+<%@ page import="app.Artista" %>
+<%@ page import="java.util.List" %>
+
+<%
+    List<Artista> topArtistas = (List<Artista>) request.getAttribute("topArtistas");
+%>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -55,7 +62,7 @@
 
  <!----------------------BÚSQUEDA DINÁMICA ---------------------->
  		 	<form class="buscador-superior" action="buscarArtista" method="post">
-                <input type="text" name="query" placeholder="¿Qué quieres buscar?" class="input-buscador">
+                <input type="text" name="query" placeholder="¿Qué artista quieres buscar?" class="input-buscador">
                 <input type="hidden" name="origen" value="index">
                 <button type="submit" class="boton-buscar">Buscar</button>
             </form>
@@ -77,40 +84,20 @@
 
                 <div class="artistas" id="listaArtistas">
 
-                    <div class="artista" data-genero="pop" data-idioma="ingles">
-                        <a href="infoArtista.jsp">
-        					<img src="./imgs/" alt="">
-    					</a>
-   						<p>nombre artista</p>
-                    </div>
-
-                    <div class="artista" data-genero="rap" data-idioma="espanol">
-                        <a href="infoArtista.jsp">
-        					<img src="./imgs/" alt="">
-    					</a>
-   						<p>nombre artista</p>
-                    </div>
-
-                    <div class="artista" data-genero="reggaeton" data-idioma="espanol">
-                        <a href="infoArtista.jsp">
-        					<img src="./imgs/" alt="">
-    					</a>
-   						<p>nombre artista</p>
-                    </div>
-
-                    <div class="artista" data-genero="rnb" data-idioma="ingles">
-                        <a href="infoArtista.jsp">
-        					<img src="./imgs/" alt="">
-    					</a>
-   						<p>nombre artista</p>
-                    </div>
-
-                    <div class="artista" data-genero="trap" data-idioma="espanol">
-                        <a href="infoArtista.jsp">
-        					<img src="./imgs/" alt="">
-    					</a>
-   						<p>nombre artista</p>
-                    </div>
+                    <% if (topArtistas != null && !topArtistas.isEmpty()) { %>
+        				<% for (int i = 0; i < 5; i++) { 
+        					Artista a = topArtistas.get(i);%>
+        					
+            				<div class="artista">
+                				<a href="infoArtista.jsp?id=<%= a.getId() %>">
+                    				<img src="../imgs/" alt="">
+                				</a>
+                				<p><%= a.getNombre() %></p>
+            				</div>
+        				<% } %>
+    				<% } else { %>
+        				<p>No hay artistas disponibles.</p>
+    				<% } %>
 
                 </div>
 

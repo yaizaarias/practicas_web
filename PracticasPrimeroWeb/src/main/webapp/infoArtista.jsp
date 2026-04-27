@@ -43,7 +43,7 @@
     <main class="detalles">
         <div class="cabecera">
 
-            <a href="./index.jsp" class="volver">Volver al índice</a>
+            <a href="inicio" class="volver">Volver al índice</a>
 			
             <% if (usuarioSesion != null) { %>
     			<a href="logout" class="login">Cerrar sesión</a>
@@ -54,7 +54,7 @@
             <!----------------------BÚSQUEDA DINÁMICA ---------------------->
 
             <form class="buscador-superior" action="buscarArtista" method="post">
-    			<input type="text" name="query" placeholder="¿Qué quieres buscar?" class="input-buscador">
+    			<input type="text" name="query" placeholder="¿Qué canción quieres buscar?" class="input-buscador">
     			<input type="hidden" name="origen" value="infoArtista">
     			<input type="hidden" name="artistaActualId" value="<%= artista != null ? artista.getId() : "" %>">
     			<button type="submit" class="boton-buscar">Buscar</button>

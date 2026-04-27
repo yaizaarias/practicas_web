@@ -22,7 +22,7 @@
 
         <div class="cabecera">
 
-            <a href="index.jsp" class="volver">Volver al índice</a>
+            <a href="inicio" class="volver">Volver al índice</a>
             <h2 class="titulo-login">Acceso</h2>
 
         </div>

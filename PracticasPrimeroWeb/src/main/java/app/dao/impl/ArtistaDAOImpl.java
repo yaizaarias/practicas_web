@@ -191,7 +191,8 @@ public class ArtistaDAOImpl implements ArtistaDAO {
                         rs.getString("duracion"),
                         rs.getLong("reproducciones"),
                         rs.getDate("fecha"),
-                        rs.getInt("id_Album")
+                        rs.getInt("id_Album"),
+                        rs.getString("url")
                 );
                 lista.add(c);
             }
@@ -215,7 +216,34 @@ public class ArtistaDAOImpl implements ArtistaDAO {
 
 	@Override
 	public List<Artista> findTopByOyentes(int limit) {
-		return null;
+		List<Artista> lista = new ArrayList<>();
+
+	    try {
+	        String sql = "SELECT * FROM artistas ORDER BY oyentes_mensuales DESC LIMIT ?";
+	        PreparedStatement ps = conn.prepareStatement(sql);
+	        ps.setInt(1, limit);
+
+	        ResultSet rs = ps.executeQuery();
+
+	        while (rs.next()) {
+	            Artista a = new Artista(
+	                rs.getInt("id"),
+	                rs.getString("nombre"),
+	                rs.getInt("edad"),
+	                rs.getString("pais"),
+	                rs.getString("productor"),
+	                rs.getInt("oyentes_mensuales"),
+	                rs.getString("biografia"),
+	                rs.getString("genero")
+	            );
+	            lista.add(a);
+	        }
+
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	    }
+
+	    return lista;
 	}
 
 	@Override

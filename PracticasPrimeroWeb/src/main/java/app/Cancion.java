@@ -7,14 +7,16 @@ public class Cancion {
 	private long reproducciones;
 	private java.sql.Date fecha;
 	private int idAlbum;
+	private String url;
 
-	public Cancion(int id, String titulo, String duracion, long reproducciones, java.sql.Date fecha, int idAlbum) {
+	public Cancion(int id, String titulo, String duracion, long reproducciones, java.sql.Date fecha, int idAlbum, String url) {
 		this.id = id;
 		this.titulo = titulo;
 		this.duracion = duracion;
 		this.reproducciones = reproducciones;
 		this.fecha = fecha;
 		this.idAlbum = idAlbum;
+		this.url=url;
 	}
 
 	public int getId() {
@@ -63,5 +65,13 @@ public class Cancion {
 
 	public void setIdAlbum(int idAlbum) {
 		this.idAlbum = idAlbum;
+	}
+	
+	public String getUrl() {
+		return url;
+	}
+
+	public void setUrl(String url) {
+		this.url = url;
 	}
 }

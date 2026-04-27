@@ -36,7 +36,7 @@
 
             <div class="cabecera">
 
-                <a href="index.jsp" class="volver">Volver al índice</a>
+                <a href="inicio" class="volver">Volver al índice</a>
 
                 <% String usuarioSesion=(String) session.getAttribute("usuario"); %>
 
@@ -48,7 +48,7 @@
 
             <!----------------------BÚSQUEDA DINÁMICA ---------------------->
                     <form class="buscador-superior" action="buscarAlbum" method="post">
-                        <input type="text" name="query" placeholder="¿Qué quieres buscar?" class="input-buscador">
+                        <input type="text" name="query" placeholder="¿Qué canción quieres buscar?" class="input-buscador">
                         <button type="submit" class="boton-buscar">Buscar</button>
                     </form>
                     <br>

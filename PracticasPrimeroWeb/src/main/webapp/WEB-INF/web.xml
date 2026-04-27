@@ -43,6 +43,16 @@
       <servlet-name>BuscarArtistaServlet</servlet-name>
       <url-pattern>/buscarArtista</url-pattern>
   </servlet-mapping>
+  
+  <servlet>
+      <servlet-name>IndexServlet</servlet-name>
+      <servlet-class>app.servlets.IndexServlet</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+      <servlet-name>IndexServlet</servlet-name>
+      <url-pattern>/inicio</url-pattern>
+  </servlet-mapping>
 
   <welcome-file-list>
       <welcome-file>index.jsp</welcome-file>
