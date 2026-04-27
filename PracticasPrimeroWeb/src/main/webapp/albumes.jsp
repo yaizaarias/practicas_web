@@ -17,124 +17,136 @@
 
 <body>
 
-<header>
-    <h1>Sinfonía Urbana</h1>
+	<header>
+		<h1>Sinfonía Urbana</h1>
 
-    <nav>
-        <ul>
-            <li><a href="./artistas.jsp">Artistas</a></li>
-            <li><a href="./albumes.jsp">Álbumes</a></li>
-            <li><a href="./canciones.jsp">Canciones</a></li>
-            <li><a href="./top.jsp">Top global</a></li>
-            <li><a href="./novedades.jsp">Novedades</a></li>
-            <li><a href="./generos.jsp">Géneros</a></li>
-        </ul>
-    </nav>
+		<nav>
+			<ul>
+				<li><a href="./artistas.jsp">Artistas</a></li>
+				<li><a href="./albumes.jsp">Álbumes</a></li>
+				<li><a href="./canciones.jsp">Canciones</a></li>
+				<li><a href="./top.jsp">Top global</a></li>
+				<li><a href="./novedades.jsp">Novedades</a></li>
+				<li><a href="./generos.jsp">Géneros</a></li>
+			</ul>
+		</nav>
 
-    <hr>
-</header>
+		<hr>
+	</header>
 
-<main>
+	<main>
 
-    <div class="cabecera">
+		<div class="cabecera">
 
-        <a href="index.jsp" class="volver">Volver al índice</a>
+			<a href="index.jsp" class="volver">Volver al índice</a>
 
-        <%
+			<%
         String usuarioSesion = (String) session.getAttribute("usuario");
         %>
 
-        <%
-        if (usuarioSesion != null) {
+			<% if (usuarioSesion != null) { %>
+			<a href="logout" class="login">Cerrar sesión</a>
+			<% } else { %>
+			<a href="login.jsp" class="login">Acceso</a>
+			<% } %>
+
+			<form class="buscador-superior" action="BuscarAlbumServlet"
+				method="post">
+				<input type="text" name="album" placeholder="¿Qué quieres buscar?"
+					class="input-buscador">
+				<button type="submit" class="boton-buscar">Buscar</button>
+			</form>
+
+			<br>
+			<br>
+
+			<h2 class="titulo-artistas">Álbumes</h2>
+
+	
+			<%
+        if (request.getAttribute("error") != null) {
         %>
-            <a href="logout" class="login">Cerrar sesión</a>
-        <%
-        } else {
-        %>
-            <a href="login.jsp" class="login">Acceso</a>
-        <%
+			<p style="color: red"><%=request.getAttribute("error")%></p>
+			<%
         }
         %>
 
-        <!-- BUSQUEDA -->
-        <%
+		</div>
+
+		<div class="contenido">
+			<section class="centro">
+
+				<div class="artistas">
+
+					<%
         Albumes album = (Albumes) request.getAttribute("album");
         List<Cancion> canciones = (List<Cancion>) request.getAttribute("canciones");
         %>
 
-        <form action="BuscarAlbumServlet" method="post">
-            <input type="text" name="album" placeholder="Buscar álbum">
-            <button type="submit">Buscar</button>
-        </form>
-
-        <!-- ERROR -->
-        <%
-        if (request.getAttribute("error") != null) {
-        %>
-            <p style="color: red">
-                <%=request.getAttribute("error")%>
-            </p>
-        <%
-        }
+>
+					<%
+        if (canciones != null && !canciones.isEmpty()) {
+            for (Cancion c : canciones) {
         %>
 
-    </div>
+					<div class="artista">
+						<img src="imgs/default.jpg" alt="">
+						<p><%=c.getTitulo()%></p>
+					</div>
 
-    <section class="centro">
-
-        <%
-        if (album != null && canciones != null && !canciones.isEmpty()) {
+					<%
+            }
         %>
 
-        <h2><%=album.getTitulo()%></h2>
 
-        <div class="bloque-top-canciones">
-            <h3 class="titulo-top">Canciones del álbum</h3>
-
-            <div class="topCanciones">
-
-                <%
-                for (Cancion c : canciones) {
-                %>
-
-                <div class="cancion">
-                    <img src="imgs/default.jpg" alt="">
-                    <p><%=c.getTitulo()%></p>
-                    <p><%=c.getReproducciones()%> reproducciones</p>
-                </div>
-
-                <%
-                }
-                %>
-
-            </div>
-        </div>
-
-        <%
+					<%
         } else if (album != null) {
         %>
-            <p style="color:gray">Este álbum no tiene canciones registradas.</p>
-        <%
+
+					<div class="artista">
+						<img src="../imgs/" alt="">
+						<p><%=album.getTitulo()%></p>
+					</div>
+
+					<%
         }
         %>
 
-    </section>
+					<div class="artista">
+						<img src="../imgs/" alt="">
+						<p>nombre Álbum</p>
+					</div>
 
-</main>
+					<div class="artista">
+						<img src="../imgs/" alt="">
+						<p>nombre Álbum</p>
+					</div>
 
-<footer>
-    <div class="footer-content">
-        <div>
-            <h4>Proyecto</h4>
-            <p>Sinfonía Urbana</p>
-        </div>
+					<div class="artista">
+						<img src="../imgs/" alt="">
+						<p>nombre Álbum</p>
+					</div>
 
-        <div>
-            <h4>Contacto</h4>
-            <p>yaiza5arias@gmail.com</p>
-        </div>
-    </div>
-</footer>
+				</div>
+
+			</section>
+		</div>
+
+	</main>
+
+	<footer>
+		<div class="footer-content">
+			<div>
+				<h4>Proyecto</h4>
+				<p>Sinfonía Urbana</p>
+			</div>
+
+			<div>
+				<h4>Contacto</h4>
+				<p>yaiza5arias@gmail.com</p>
+			</div>
+		</div>
+	</footer>
 
 </body>
 </html>
