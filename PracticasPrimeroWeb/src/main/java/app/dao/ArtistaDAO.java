@@ -2,6 +2,7 @@ package app.dao;
 
 import java.util.List;
 import app.Artista;
+import app.Cancion;
 
 public interface ArtistaDAO {
 
@@ -24,4 +25,6 @@ public interface ArtistaDAO {
     void update(Artista a);
 
     void delete(int id);
+    
+    public List<Cancion> findCancionesByArtista(int idArtista);
 }

@@ -77,7 +77,7 @@
                 	<h3>Datos</h3>
                 	<h4>Edad: <%= artista.getEdad() %></h4>
                 	<h4>Oyentes mensuales: <%= artista.getOyentesMensuales() %></h4>
-                	<h4>Total de canciones: <%= canciones != null ? canciones.size() : 0 %></h4>
+                	<h4>Total de canciones: <%= request.getAttribute("totalCanciones") != null ? request.getAttribute("totalCanciones") : 0 %></h4>
                 	<h4>Nació en: <%= artista.getPais() %></h4>
                 	<h4>Productor habitual: <%= artista.getProductor() %></h4>
             	</div>
@@ -97,7 +97,7 @@
                 	<% if (canciones != null && !canciones.isEmpty()) { %>
                         <% for (Cancion c : canciones) { %>
                             <div class="cancion">
-                                <img src="./imgs/" alt="<%= c.getTitulo() %>">
+                                <img src="../imgs/" alt="">
                                 <p><%= c.getTitulo() %></p>
                                 <p><%= c.getReproducciones() %> reproducciones</p>
                             </div>
