@@ -9,9 +9,9 @@ public interface AlbumDAO {
 
     Albumes findById(int id);
 
-    List<Albumes> findByArtista(int idArtista);
-
     List<Albumes> findLatest();
+
+    List<Albumes> findByNombre(String nombre);
 
     void insert(Albumes a);
 

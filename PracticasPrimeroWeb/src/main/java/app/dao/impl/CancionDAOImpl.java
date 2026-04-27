@@ -164,12 +164,36 @@ public class CancionDAOImpl implements CancionDAO {
 
         return lista;
     }
+    
+    @Override
+    public List<Cancion> findByAlbum(int idAlbum) {
+        List<Cancion> lista = new ArrayList<>();
 
-	@Override
-	public List<Cancion> findByAlbum(int idAlbum) {
+        try {
+            String sql = "SELECT * FROM canciones WHERE id_album = ?";
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setInt(1, idAlbum);
 
-		return null;
-	}
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+                lista.add(new Cancion(
+                        rs.getInt("id"),
+                        rs.getString("titulo"),
+                        rs.getString("duracion"),
+                        rs.getLong("reproducciones"),
+                        rs.getDate("fecha"),
+                        rs.getInt("id_album")
+                ));
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return lista;
+    }
+
 
 	@Override
 	public List<Cancion> findTopByReproducciones(int limit) {

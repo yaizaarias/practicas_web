@@ -1,6 +1,7 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ page import="java.util.List" %>
-<%@ page import="app.Albumes" %>
+<%@ page import="java.util.List"%>
+<%@ page import="app.Cancion"%>
+<%@ page import="app.Albumes"%>
 
 <!DOCTYPE html>
 <html lang="es">
@@ -16,109 +17,124 @@
 
 <body>
 
-	<header>
-		<h1>Sinfonía Urbana</h1>
+<header>
+    <h1>Sinfonía Urbana</h1>
 
-		<nav>
-			<ul>
-				<li><a href="./artistas.jsp">Artistas</a></li>
-				<li><a href="./albumes.jsp">Álbumes</a></li>
-				<li><a href="./canciones.jsp">Canciones</a></li>
-				<li><a href="./top.jsp">Top global</a></li>
-				<li><a href="./novedades.jsp">Novedades</a></li>
-				<li><a href="./generos.jsp">Géneros</a></li>
-			</ul>
-		</nav>
+    <nav>
+        <ul>
+            <li><a href="./artistas.jsp">Artistas</a></li>
+            <li><a href="./albumes.jsp">Álbumes</a></li>
+            <li><a href="./canciones.jsp">Canciones</a></li>
+            <li><a href="./top.jsp">Top global</a></li>
+            <li><a href="./novedades.jsp">Novedades</a></li>
+            <li><a href="./generos.jsp">Géneros</a></li>
+        </ul>
+    </nav>
 
-		<hr>
-	</header>
+    <hr>
+</header>
 
-	<main>
+<main>
 
-		<div class="cabecera">
+    <div class="cabecera">
 
-			<a href="index.jsp" class="volver">Volver al índice</a>
+        <a href="index.jsp" class="volver">Volver al índice</a>
 
-			<%
-			String usuarioSesion = (String) session.getAttribute("usuario");
-			%>
+        <%
+        String usuarioSesion = (String) session.getAttribute("usuario");
+        %>
 
-			<%
-			if (usuarioSesion != null) {
-			%>
-			<a href="logout" class="login">Cerrar sesión</a>
-			<%
-			} else {
-			%>
-			<a href="login.jsp" class="login">Acceso</a>
-			<%
-			}
-			%>
+        <%
+        if (usuarioSesion != null) {
+        %>
+            <a href="logout" class="login">Cerrar sesión</a>
+        <%
+        } else {
+        %>
+            <a href="login.jsp" class="login">Acceso</a>
+        <%
+        }
+        %>
 
-			<!---------------------- BÚSQUEDA DINÁMICA ---------------------->
-			<form action="AlbumServlet" method="post">
-				<input type="text" name="titulo" placeholder="¿Qué quieres buscar?">
-				<button type="submit">Buscar</button>
-			</form>
+        <!-- BUSQUEDA -->
+        <%
+        Albumes album = (Albumes) request.getAttribute("album");
+        List<Cancion> canciones = (List<Cancion>) request.getAttribute("canciones");
+        %>
 
-			<br><br>
+        <form action="BuscarAlbumServlet" method="post">
+            <input type="text" name="album" placeholder="Buscar álbum">
+            <button type="submit">Buscar</button>
+        </form>
 
-			<h2 class="titulo-artistas">Álbumes</h2>
+        <!-- ERROR -->
+        <%
+        if (request.getAttribute("error") != null) {
+        %>
+            <p style="color: red">
+                <%=request.getAttribute("error")%>
+            </p>
+        <%
+        }
+        %>
 
-		</div>
+    </div>
 
-		<!------------------------ LISTA DINÁMICA ------------------------------>
-		<div class="contenido">
+    <section class="centro">
 
-			<section class="centro">
+        <%
+        if (album != null && canciones != null && !canciones.isEmpty()) {
+        %>
 
-				<div class="artistas">
+        <h2><%=album.getTitulo()%></h2>
 
-					<%
-					List<Albumes> albumes = (List<Albumes>) request.getAttribute("albumes");
+        <div class="bloque-top-canciones">
+            <h3 class="titulo-top">Canciones del álbum</h3>
 
-					if (albumes != null && !albumes.isEmpty()) {
-					    for (Albumes a : albumes) {
-					%>
+            <div class="topCanciones">
 
-					<div class="artista">
-						<img src="../imgs/" alt="">
-						<p><%= a.getTitulo() %></p>
-					</div>
+                <%
+                for (Cancion c : canciones) {
+                %>
 
-					<%
-					    }
-					} else {
-					%>
+                <div class="cancion">
+                    <img src="imgs/default.jpg" alt="">
+                    <p><%=c.getTitulo()%></p>
+                    <p><%=c.getReproducciones()%> reproducciones</p>
+                </div>
 
-					<p>No hay álbumes disponibles</p>
+                <%
+                }
+                %>
 
-					<%
-					}
-					%>
+            </div>
+        </div>
 
-				</div>
+        <%
+        } else if (album != null) {
+        %>
+            <p style="color:gray">Este álbum no tiene canciones registradas.</p>
+        <%
+        }
+        %>
 
-			</section>
+    </section>
 
-		</div>
+</main>
 
-	</main>
+<footer>
+    <div class="footer-content">
+        <div>
+            <h4>Proyecto</h4>
+            <p>Sinfonía Urbana</p>
+        </div>
 
-	<footer>
-		<div class="footer-content">
-			<div>
-				<h4>Proyecto</h4>
-				<p>Sinfonía Urbana</p>
-			</div>
-
-			<div>
-				<h4>Contacto</h4>
-				<p>yaiza5arias@gmail.com</p>
-			</div>
-		</div>
-	</footer>
+        <div>
+            <h4>Contacto</h4>
+            <p>yaiza5arias@gmail.com</p>
+        </div>
+    </div>
+</footer>
 
 </body>
-
 </html>
