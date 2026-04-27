@@ -73,28 +73,38 @@
                 <div class="artistas" id="listaArtistas">
 
                     <div class="artista" data-genero="pop" data-idioma="ingles">
-                        <img src="../imgs/" alt="">
-                        <p>Artista 1</p>
+                        <a href="infoArtista.jsp">
+        					<img src="./imgs/" alt="">
+    					</a>
+   						<p>nombre artista</p>
                     </div>
 
                     <div class="artista" data-genero="rap" data-idioma="espanol">
-                        <img src="../imgs/" alt="">
-                        <p>Artista 2</p>
+                        <a href="infoArtista.jsp">
+        					<img src="./imgs/" alt="">
+    					</a>
+   						<p>nombre artista</p>
                     </div>
 
                     <div class="artista" data-genero="reggaeton" data-idioma="espanol">
-                        <img src="../imgs/" alt="">
-                        <p>Artista 3</p>
+                        <a href="infoArtista.jsp">
+        					<img src="./imgs/" alt="">
+    					</a>
+   						<p>nombre artista</p>
                     </div>
 
                     <div class="artista" data-genero="rnb" data-idioma="ingles">
-                        <img src="../imgs/" alt="">
-                        <p>Artista 4</p>
+                        <a href="infoArtista.jsp">
+        					<img src="./imgs/" alt="">
+    					</a>
+   						<p>nombre artista</p>
                     </div>
 
                     <div class="artista" data-genero="trap" data-idioma="espanol">
-                        <img src="../imgs/" alt="">
-                        <p>Artista 5</p>
+                        <a href="infoArtista.jsp">
+        					<img src="./imgs/" alt="">
+    					</a>
+   						<p>nombre artista</p>
                     </div>
 
                 </div>

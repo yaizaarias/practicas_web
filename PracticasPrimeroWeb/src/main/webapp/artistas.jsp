@@ -68,19 +68,25 @@
                 <div class="artistas">
 
                     <div class="artista">
-                        <img src="../imgs/" alt="">
-                        <p>nombre artista</p>
-                    </div>
+    					<a href="infoArtista.jsp">
+        					<img src="./imgs/" alt="">
+    					</a>
+   						<p>nombre artista</p>
+					</div>
 
                     <div class="artista">
-                        <img src="../imgs/" alt="">
-                        <p>nombre artista</p>
-                    </div>
+    					<a href="infoArtista.jsp">
+        					<img src="./imgs/" alt="">
+    					</a>
+   						<p>nombre artista</p>
+					</div>
 
                     <div class="artista">
-                        <img src="../imgs/" alt="">
-                        <p>nombre artista</p>
-                    </div>
+    					<a href="infoArtista.jsp">
+        					<img src="./imgs/" alt="">
+    					</a>
+   						<p>nombre artista</p>
+					</div>
 
                 </div>
 
@@ -88,19 +94,25 @@
                 <div class="artistas">
 
                     <div class="artista">
-                        <img src="../imgs/" alt="">
-                        <p>nombre artista</p>
-                    </div>
+    					<a href="infoArtista.jsp">
+        					<img src="./imgs/" alt="">
+    					</a>
+   						<p>nombre artista</p>
+					</div>
 
                     <div class="artista">
-                        <img src="../imgs/" alt="">
-                        <p>nombre artista</p>
-                    </div>
+    					<a href="infoArtista.jsp">
+        					<img src="./imgs/" alt="">
+    					</a>
+   						<p>nombre artista</p>
+					</div>
 
                     <div class="artista">
-                        <img src="../imgs/" alt="">
-                        <p>nombre artista</p>
-                    </div>
+    					<a href="infoArtista.jsp">
+        					<img src="./imgs/" alt="">
+    					</a>
+   						<p>nombre artista</p>
+					</div>
 
                 </div>
 
@@ -115,7 +127,7 @@
         <div class="footer-content">
             <div>
                 <h4>Proyecto</h4>
-                <p>SinfonÃ­a Urbana</p>
+                <p>Sinfonía Urbana</p>
             </div>
 
             <div>

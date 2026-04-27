@@ -39,7 +39,7 @@ public class LoginServlet extends HttpServlet {
         	DataSource ds = (DataSource) envCtx.lookup("jdbc/musicaDB");
         	conn = ds.getConnection();
 
-            UsuarioDAO usuarioDAO = new UsuarioDAOImpl(conn);
+            UsuarioDAOImpl usuarioDAO = new UsuarioDAOImpl(conn);
             Usuario usuario = usuarioDAO.login(identificador, contrasena);
         	
         	if (usuario != null) {
@@ -58,6 +58,12 @@ public class LoginServlet extends HttpServlet {
             e.printStackTrace();
             request.setAttribute("error", "ERROR interno al iniciar sesión");
             request.getRequestDispatcher("/login.jsp").forward(request, response);
+        }finally {
+            try {
+                if (conn != null) conn.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
         
 	}
