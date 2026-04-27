@@ -75,7 +75,7 @@
             
             	<div class="datos-artista">
                 	<h3>Datos</h3>
-                	<h4>>Edad: <%= artista.getEdad() %></h4>
+                	<h4>Edad: <%= artista.getEdad() %></h4>
                 	<h4>Oyentes mensuales: <%= artista.getOyentesMensuales() %></h4>
                 	<h4>Total de canciones: <%= canciones != null ? canciones.size() : 0 %></h4>
                 	<h4>Nació en: <%= artista.getPais() %></h4>
@@ -94,38 +94,26 @@
             	<h3 class="titulo-top">Top canciones</h3>
 
             	<div class="topCanciones">
-                	<div class="cancion">
-                    	<img src="../imgs/" alt="">
-                    	<p>nombre canción</p>
-                    	<p>xxxx visualizaciones</p>
-                	</div>
-
-                	<div class="cancion">
-                    	<img src="../imgs/" alt="">
-                    	<p>nombre canción</p>
-                    	<p>xxxx visualizaciones</p>
-                	</div>
-
-                	<div class="cancion">
-                   		<img src="../imgs/" alt="">
-                    	<p>nombre canción</p>
-                    	<p>xxxx visualizaciones</p>
-                	</div>
-
-                	<div class="cancion">
-                    	<img src="../imgs/" alt="">
-                    	<p>nombre canción</p>
-                    	<p>xxxx visualizaciones</p>
-                	</div>
-
-                	<div class="cancion">
-                    	<img src="../imgs/" alt="">
-                    	<p>nombre canción</p>
-                    	<p>xxxx visualizaciones</p>
-                	</div>
+                	<% if (canciones != null && !canciones.isEmpty()) { %>
+                        <% for (Cancion c : canciones) { %>
+                            <div class="cancion">
+                                <img src="./imgs/" alt="<%= c.getTitulo() %>">
+                                <p><%= c.getTitulo() %></p>
+                                <p><%= c.getReproducciones() %> reproducciones</p>
+                            </div>
+                        <% } %>
+                    <% } else { %>
+                        <p>No hay canciones disponibles para este artista.</p>
+                    <% } %>
             	</div>
         	</div>
+        <% } else { %>
+
+        	<div class="contenido-artista">
+            	<p>No se ha encontrado información del artista.</p>
+        	</div>
     	<% } %>
+    	
     </main>
 
     <footer>

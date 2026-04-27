@@ -51,9 +51,9 @@ public class ArtistaDAOImpl implements ArtistaDAO {
         Artista a = null;
 
         try {
-            String sql = "SELECT * FROM artistas WHERE LOWER(nombre) = LOWER(?)";
+            String sql = "SELECT * FROM artistas WHERE LOWER(TRIM(nombre)) = LOWER(?)";
             PreparedStatement ps = conn.prepareStatement(sql);
-            ps.setString(1, nombre);
+            ps.setString(1, nombre.trim());
 
             ResultSet rs = ps.executeQuery();
 
@@ -64,7 +64,7 @@ public class ArtistaDAOImpl implements ArtistaDAO {
                     rs.getInt("edad"),
                     rs.getString("pais"),
                     rs.getString("productor"),
-                    rs.getInt("oyentesMensuales"),
+                    rs.getInt("oyentes_mensuales"),
                     rs.getString("biografia"),
                     rs.getString("genero")
                 );
@@ -95,7 +95,7 @@ public class ArtistaDAOImpl implements ArtistaDAO {
                         rs.getInt("edad"),
                         rs.getString("pais"),
                         rs.getString("productor"),
-                        rs.getInt("oyentesMensuales"),
+                        rs.getInt("oyentes_mensuales"),
                         rs.getString("biografia"),
                         rs.getString("genero")
                 );
@@ -111,7 +111,7 @@ public class ArtistaDAOImpl implements ArtistaDAO {
     @Override
     public void insert(Artista a) {
         try {
-            String sql = "INSERT INTO artistas(nombre, edad, pais, productor, oyentesMensuales, biografia, genero) VALUES (?,?,?,?,?,?,?)";
+            String sql = "INSERT INTO artistas(nombre, edad, pais, productor, oyentes_mensuales, biografia, genero) VALUES (?,?,?,?,?,?,?)";
             PreparedStatement ps = conn.prepareStatement(sql);
 
             ps.setString(1, a.getNombre());
@@ -132,7 +132,7 @@ public class ArtistaDAOImpl implements ArtistaDAO {
     @Override
     public void update(Artista a) {
         try {
-            String sql = "UPDATE artistas SET nombre=?, edad=?, pais=?, productor=?, oyentesMensuales=?, biografia=?, genero=? WHERE id=?";
+            String sql = "UPDATE artistas SET nombre=?, edad=?, pais=?, productor=?, oyentes_mensuales=?, biografia=?, genero=? WHERE id=?";
             PreparedStatement ps = conn.prepareStatement(sql);
 
             ps.setString(1, a.getNombre());
