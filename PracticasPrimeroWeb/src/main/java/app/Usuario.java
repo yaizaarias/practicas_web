@@ -49,7 +49,7 @@ public class Usuario {
 	public void setRol(String rol) {
 		this.rol = rol;
 	}
-	
+
 	public String getNickname() {
 		return nickname;
 	}
