@@ -6,8 +6,6 @@ import app.Artista;
 public interface ArtistaDAO {
 
     List<Artista> findAll();
-    
-    Artista findByNombre(String nombre);
 
     Artista findById(int id);
 

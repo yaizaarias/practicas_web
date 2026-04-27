@@ -1,7 +1,6 @@
 package app;
 
 import java.sql.Connection;
-
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -13,7 +12,7 @@ public class Main {
 		// TODO Auto-generated method stub
 		String url = "jdbc:mysql://localhost:3306/musica_db";
 		String user = "root";
-		String password = "70107010";
+		String password = "admin";
 
 		Connection conn = DriverManager.getConnection(url, user, password);
 		

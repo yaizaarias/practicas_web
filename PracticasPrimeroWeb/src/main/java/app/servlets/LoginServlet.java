@@ -1,14 +1,13 @@
 package app.servlets;
 
 import java.io.IOException;
-
 import java.sql.Connection;
-import javax.sql.DataSource;
-import javax.naming.Context;
-import javax.naming.InitialContext;
+import java.sql.DriverManager;
 
 import app.Usuario;
+import app.dao.UsuarioDAO;
 import app.dao.impl.UsuarioDAOImpl;
+import java.sql.Connection;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
@@ -29,16 +28,17 @@ public class LoginServlet extends HttpServlet {
         String identificador = request.getParameter("identificador");
         String contrasena = request.getParameter("contrasena");
         
+        String url = "jdbc:mysql://localhost:3306/musica_db";
+		String user = "root";
+		String password = "admin";
+        
         Connection conn = null;
         
         try {
-        	
-        	Context initCtx = new InitialContext();
-        	Context envCtx = (Context) initCtx.lookup("java:comp/env");
-        	DataSource ds = (DataSource) envCtx.lookup("jdbc/musicaDB");
-        	conn = ds.getConnection();
+        	Class.forName("com.mysql.cj.jdbc.Driver");
+        	conn = DriverManager.getConnection(url, user, password);
 
-            UsuarioDAOImpl usuarioDAO = new UsuarioDAOImpl(conn);
+            UsuarioDAO usuarioDAO = new UsuarioDAOImpl(conn);
             Usuario usuario = usuarioDAO.login(identificador, contrasena);
         	
         	if (usuario != null) {
@@ -57,12 +57,6 @@ public class LoginServlet extends HttpServlet {
             e.printStackTrace();
             request.setAttribute("error", "ERROR interno al iniciar sesión");
             request.getRequestDispatcher("/login.jsp").forward(request, response);
-        }finally {
-            try {
-                if (conn != null) conn.close();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
         }
         
 	}

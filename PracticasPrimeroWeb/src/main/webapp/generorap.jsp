@@ -1,12 +1,10 @@
-<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-
 <!DOCTYPE html>
 <html lang="es">
 
 <head>
-    <title>G√©neros - Sinfon√≠a Urbana</title>
+    <title>GÈneros - SinfonÌa Urbana</title>
     <meta charset="UTF-8">
-    <meta name="description" content="G√©neros musicales">
+    <meta name="description" content="GÈneros musicales">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Yaiza">
     <link rel="stylesheet" href="styles.css">
@@ -16,16 +14,16 @@
 
 
     <header>
-        <h1>Sinfon√≠a Urbana</h1>
+        <h1>SinfonÌa Urbana</h1>
 
         <nav>
             <ul>
                 <li><a href="./artistas.jsp">Artistas</a></li>
-                <li><a href="./albumes.jsp ">√Ålbumes</a></li>
+                <li><a href="./albumes.jsp ">¡lbumes</a></li>
                 <li><a href="./canciones.jsp">Canciones</a></li>
                 <li><a href="./top.jsp">Top global</a></li>
                 <li><a href="./novedades.jsp">Novedades</a></li>
-                <li><a href="./generos.jsp">G√©neros</a></li>
+                <li><a href="./generos.jsp">GÈneros</a></li>
             </ul>
         </nav>
         
@@ -37,31 +35,16 @@
 
         <div class="cabecera">
 
-           <a href="./index.jsp" class="volver">Volver al √≠ndice</a>
-            
-            <% 	
-				String usuarioSesion = (String) session.getAttribute("usuario"); 
-			%> 
-			
-            <% if (usuarioSesion != null) { %>
-    			<a href="logout" class="login">Cerrar sesi√≥n</a>
-			<% } else { %>
-    			<a href="login.jsp" class="login">Acceso</a>
-			<% } %>
-			
- <!----------------------B√öSQUEDA DIN√Å¬ÅMICA ---------------------->
-            <form class="buscador-superior" action="buscarPorGenero" method="post">
-                <input type="text" name="query" placeholder="¬øQu√© quieres buscar?" class="input-buscador">
-                <button type="submit" class="boton-buscar">Buscar</button>
-            </form>
-            <br>
-            <br>
+            <a href="index.jsp" class="volver">Volver al Ìndice</a>
+            <a href="login.html" class="login">Acceso</a>
+ <!----------------------B⁄SQUEDA DIN¡ÅMICA ---------------------->
+            <input type="text" placeholder="øQuÈ quieres buscar?" id="buscador">
 
-            <h2><i>G√©nero:</i> <span class="genero-titulo">RAP</span></h2>
+            <h2><i>GÈnero:</i> <span class="genero-titulo">RAP</span></h2>
 
         </div>
 
- <!------------------Filtro din√°mico de m√∫sica de g√©nero rap ----------->
+ <!------------------Filtro din·mico de m˙sica de gÈnero rap ----------->
         <div class="contenido">
 
 
@@ -72,17 +55,17 @@
 
                     <div class="artista">
                         <img src="../imgs/" alt="">
-                        <p>nombre √Ålbum</p>
+                        <p>nombre ¡lbum</p>
                     </div>
 
                     <div class="artista">
                         <img src="../imgs/" alt="">
-                        <p>nombre √Ålbum</p>
+                        <p>nombre ¡lbum</p>
                     </div>
 
                     <div class="artista">
                         <img src="../imgs/" alt="">
-                        <p>nombre √Ålbum</p>
+                        <p>nombre ¡lbum</p>
                     </div>
 
                 </div>
@@ -92,26 +75,26 @@
 
                     <div class="artista">
                         <img src="../imgs/" alt="">
-                        <p>nombre √Ålbum</p>
+                        <p>nombre ¡lbum</p>
                     </div>
 
                     <div class="artista">
                         <img src="../imgs/" alt="">
-                        <p>nombre √Ålbum</p>
+                        <p>nombre ¡lbum</p>
                     </div>
 
                     <div class="artista">
                         <img src="../imgs/" alt="">
-                        <p>nombre √Ålbum</p>
+                        <p>nombre ¡lbum</p>
                     </div>
 
                 </div>
 
             </section>
-<!------------------Filtro din√°mico de los g√©neros ser√° con un WHERE genero = 'Pop' / 'Rap' etc ----------->
+<!------------------Filtro din·mico de los gÈneros ser· con un WHERE genero = 'Pop' / 'Rap' etc ----------->
             <section class="filtros">
 
-                <h2>G√©neros</h2>
+                <h2>GÈneros</h2>
 
                 <a href="./generos.jsp">Pop</a>
                 <a href="./generorap.jsp">Rap</a>
@@ -130,7 +113,7 @@
         <div class="footer-content">
             <div>
                 <h4>Proyecto</h4>
-                <p>Sinfon√≠a Urbana</p>
+                <p>SinfonÌa Urbana</p>
             </div>
 
             <div>

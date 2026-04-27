@@ -19,12 +19,12 @@
 
         <nav>
             <ul>
-                <li><a href="./artistas.jsp">Artistas</a></li>
-				<li><a href="./albumes.jsp">Álbumes</a></li>
-				<li><a href="./canciones.jsp">Canciones</a></li>
-				<li><a href="./top.jsp">Top global</a></li>
-				<li><a href="./novedades.jsp">Novedades</a></li>
-				<li><a href="./generos.jsp">Géneros</a></li>
+                <li><a href="./artistas.html">Artistas</a></li>
+				<li><a href="./albumes.html">Álbumes</a></li>
+				<li><a href="./canciones.html">Canciones</a></li>
+				<li><a href="./top.html">Top global</a></li>
+				<li><a href="./novedades.html">Novedades</a></li>
+				<li><a href="./generos.html">Géneros</a></li>
             </ul>
         </nav>
       
@@ -54,18 +54,11 @@
 			
 
  <!----------------------BÚSQUEDA DINÁMICA ---------------------->
- 		 	<form class="buscador-superior" action="buscarArtista" method="post">
-                <input type="text" name="query" placeholder="¿Qué quieres buscar?" class="input-buscador">
-                <input type="hidden" name="origen" value="index">
-                <button type="submit" class="boton-buscar">Buscar</button>
-            </form>
-            
-            <p class="mensaje-error">
-    			<%= request.getAttribute("errorBusqueda") != null ? request.getAttribute("errorBusqueda") : "" %>
-			</p>
+ 		 	<form action="buscar" method="GET">
+     		    <input type="text"  name="query" placeholder="¿Qué quieres buscar?" id="buscador">
+    		</form>
 
             <p>Descubre música y la información de tus artistas favoritos con un solo click!</p>
-    
         </div>
 
         <div class="contenido">
@@ -78,38 +71,28 @@
                 <div class="artistas" id="listaArtistas">
 
                     <div class="artista" data-genero="pop" data-idioma="ingles">
-                        <a href="infoArtista.jsp">
-        					<img src="./imgs/" alt="">
-    					</a>
-   						<p>nombre artista</p>
+                        <img src="../imgs/" alt="">
+                        <p>Artista 1</p>
                     </div>
 
                     <div class="artista" data-genero="rap" data-idioma="espanol">
-                        <a href="infoArtista.jsp">
-        					<img src="./imgs/" alt="">
-    					</a>
-   						<p>nombre artista</p>
+                        <img src="../imgs/" alt="">
+                        <p>Artista 2</p>
                     </div>
 
                     <div class="artista" data-genero="reggaeton" data-idioma="espanol">
-                        <a href="infoArtista.jsp">
-        					<img src="./imgs/" alt="">
-    					</a>
-   						<p>nombre artista</p>
+                        <img src="../imgs/" alt="">
+                        <p>Artista 3</p>
                     </div>
 
                     <div class="artista" data-genero="rnb" data-idioma="ingles">
-                        <a href="infoArtista.jsp">
-        					<img src="./imgs/" alt="">
-    					</a>
-   						<p>nombre artista</p>
+                        <img src="../imgs/" alt="">
+                        <p>Artista 4</p>
                     </div>
 
                     <div class="artista" data-genero="trap" data-idioma="espanol">
-                        <a href="infoArtista.jsp">
-        					<img src="./imgs/" alt="">
-    					</a>
-   						<p>nombre artista</p>
+                        <img src="../imgs/" alt="">
+                        <p>Artista 5</p>
                     </div>
 
                 </div>
@@ -150,7 +133,7 @@
                     <option value="todos">Todos</option>
                     <option value="2020-2026">2020-2026</option>
                     <option value="2010-2020">2010-2020</option>
-                    <option value="MasAntiguo"> Más antiguo</option>
+                    <option value="MasAntiguo"> Más antiguo</optiom>
                 </select>
 
 
