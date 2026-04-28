@@ -22,7 +22,7 @@ public class CancionDAOImpl implements CancionDAO {
         List<Cancion> lista = new ArrayList<>();
 
         try {
-            String sql = "SELECT * FROM cancion";
+            String sql = "SELECT * FROM canciones";
             Statement stmt = conn.createStatement();
             ResultSet rs = stmt.executeQuery(sql);
 
@@ -51,7 +51,7 @@ public class CancionDAOImpl implements CancionDAO {
         Cancion c = null;
 
         try {
-            String sql = "SELECT * FROM cancion WHERE id=?";
+            String sql = "SELECT * FROM canciones WHERE id=?";
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.setInt(1, id);
 
@@ -79,7 +79,7 @@ public class CancionDAOImpl implements CancionDAO {
     @Override
     public void insert(Cancion c) {
         try {
-            String sql = "INSERT INTO cancion(titulo,duracion,reproducciones,fecha,id_album) VALUES (?,?,?,?,?)";
+            String sql = "INSERT INTO canciones(titulo,duracion,reproducciones,fecha,id_album) VALUES (?,?,?,?,?)";
             
             PreparedStatement ps = conn.prepareStatement(sql);
 
@@ -88,6 +88,7 @@ public class CancionDAOImpl implements CancionDAO {
             ps.setLong(3, c.getReproducciones());
             ps.setDate(4, c.getFecha());
             ps.setInt(5, c.getIdAlbum());
+            ps.setString(6, c.getUrl());
 
             ps.executeUpdate();
 
@@ -99,7 +100,7 @@ public class CancionDAOImpl implements CancionDAO {
     @Override
     public void update(Cancion c) {
         try {
-            String sql = "UPDATE cancion SET titulo=?, duracion=?, reproducciones=?, fecha=?, id_album=? WHERE id=?";
+            String sql = "UPDATE canciones SET titulo=?, duracion=?, reproducciones=?, fecha=?, id_album=? WHERE id=?";
             PreparedStatement ps = conn.prepareStatement(sql);
 
             ps.setString(1, c.getTitulo());
@@ -108,6 +109,7 @@ public class CancionDAOImpl implements CancionDAO {
             ps.setDate(4, c.getFecha());
             ps.setInt(5, c.getIdAlbum());
             ps.setInt(6, c.getId());
+            ps.setString(6, c.getUrl());
 
             ps.executeUpdate();
 
@@ -119,7 +121,7 @@ public class CancionDAOImpl implements CancionDAO {
     @Override
     public void delete(int id) {
         try {
-            String sql = "DELETE FROM cancion WHERE id=?";
+            String sql = "DELETE FROM canciones WHERE id=?";
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.setInt(1, id);
 
@@ -185,7 +187,8 @@ public class CancionDAOImpl implements CancionDAO {
                         rs.getString("duracion"),
                         rs.getLong("reproducciones"),
                         rs.getDate("fecha"),
-                        rs.getInt("id_album")
+                        rs.getInt("id_album"),
+                        rs.getString("url")
                 ));
             }
 
