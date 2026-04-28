@@ -106,4 +106,48 @@ public class BuscarArtistaServlet extends HttpServlet {
     		request.getRequestDispatcher("/artistas.jsp").forward(request, response);
     	}
     }
+    
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+
+        String idStr = request.getParameter("id");
+        Connection conn = null;
+
+        try {
+            if (idStr == null || idStr.isEmpty()) {
+                response.sendRedirect(request.getContextPath() + "/inicio");
+                return;
+            }
+
+            int idArtista = Integer.parseInt(idStr);
+
+            Context initCtx = new InitialContext();
+            Context envCtx = (Context) initCtx.lookup("java:comp/env");
+            DataSource ds = (DataSource) envCtx.lookup("jdbc/musicaDB");
+            conn = ds.getConnection();
+
+            ArtistaDAOImpl artistaDAO = new ArtistaDAOImpl(conn);
+
+            Artista artista = artistaDAO.findById(idArtista);
+            List<Cancion> canciones = artistaDAO.findCancionesByArtista(idArtista);
+            int totalCanciones = artistaDAO.countCanciones(idArtista);
+
+            request.setAttribute("artista", artista);
+            request.setAttribute("canciones", canciones);
+            request.setAttribute("totalCanciones", totalCanciones);
+
+            request.getRequestDispatcher("/infoArtista.jsp").forward(request, response);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            response.sendRedirect(request.getContextPath() + "/inicio");
+        } finally {
+            try {
+                if (conn != null) conn.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
    }

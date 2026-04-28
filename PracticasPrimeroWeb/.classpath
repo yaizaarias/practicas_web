@@ -13,10 +13,6 @@
 			<attribute name="owner.project.facets" value="jst.web"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/yaiza/Downloads/mysql-connector-j-9.5.0.jar">
-		<attributes>
-			<attribute name="module" value="true"/>
-		</attributes>
-	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/crish/Desktop/Prácticas/Repsitorio/practicas_web/PracticasPrimeroWeb/src/main/webapp/WEB-INF/lib/mysql-connector-j-9.7.0.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

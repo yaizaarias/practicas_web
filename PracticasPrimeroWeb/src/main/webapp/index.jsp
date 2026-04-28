@@ -89,7 +89,7 @@
         					Artista a = topArtistas.get(i);%>
         					
             				<div class="artista">
-                				<a href="infoArtista.jsp?id=<%= a.getId() %>">
+                				<a href="<%= request.getContextPath() %>/buscarArtista?id=<%= a.getId() %>">
                     				<img src="../imgs/" alt="">
                 				</a>
                 				<p><%= a.getNombre() %></p>
