@@ -51,12 +51,13 @@ public class UsuarioDAOImpl implements UsuarioDAO {
     @Override
     public void register(Usuario u) {
         try {
-            String sql = "INSERT INTO usuario(email, contrasena, rol) VALUES (?,?,?)";
+            String sql = "INSERT INTO usuarios(email, contrasena, rol, nickname) VALUES (?,?,?,?)";
             PreparedStatement ps = conn.prepareStatement(sql);
 
             ps.setString(1, u.getEmail());
             ps.setString(2, u.getContrasena());
             ps.setString(3, u.getRol());
+            ps.setString(4, u.getNickname());
 
             ps.executeUpdate();
 

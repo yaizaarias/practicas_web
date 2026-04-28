@@ -32,7 +32,7 @@ public class ArtistaDAOImpl implements ArtistaDAO {
                         rs.getInt("edad"),
                         rs.getString("pais"),
                         rs.getString("productor"),
-                        rs.getInt("oyentesMensuales"),
+                        rs.getInt("oyentes_mensuales"),
                         rs.getString("biografia"),
                         rs.getString("genero")
                 );
