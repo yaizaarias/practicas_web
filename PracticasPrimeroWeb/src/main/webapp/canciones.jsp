@@ -1,10 +1,16 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ page import="app.Cancion" %>
+<%@ page import="java.util.List" %>
+
+<%
+    List<Cancion> canciones = (List<Cancion>) request.getAttribute("canciones");
+%>
 
 <!DOCTYPE html>
 <html lang="es">
 
 <head>
-    <title>Artistas - Sinfonía Urbana</title>
+    <title>Canciones - Sinfonía Urbana</title>
     <meta charset="UTF-8">
     <meta name="description" content="Artistas musicales">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -21,7 +27,7 @@
             <ul>
                 <li><a href="<%= request.getContextPath() %>/artistas">Artistas</a></li>
                 <li><a href="./albumes.jsp">Álbumes</a></li>
-                <li><a href="./canciones.jsp">Canciones</a></li>
+                <li><a href="<%= request.getContextPath() %>/canciones">Canciones</a></li>
                 <li><a href="./top.jsp">Top global</a></li>
                 <li><a href="./novedades.jsp">Novedades</a></li>
                 <li><a href="./generos.jsp">Géneros</a></li>
@@ -49,9 +55,13 @@
           
  <!----------------------BÚSQUEDA DINÁMICA ---------------------->
             <form class="buscador-superior" action="buscarCancion" method="post">
-                <input type="text" name="query" placeholder="¿Qué quieres buscar?" class="input-buscador">
-                <button type="submit" class="boton-buscar">Buscar</button>
-            </form>
+    			<input type="text" name="query" placeholder="¿Qué canción quieres escuchar?" class="input-buscador">
+    			<button type="submit" class="boton-buscar">Buscar</button>
+			</form>
+
+			<p class="mensaje-error">
+    			<%= request.getAttribute("errorBusqueda") != null ? request.getAttribute("errorBusqueda") : "" %>
+			</p>
             <br>
             <br>
 
@@ -68,39 +78,33 @@
 
                 <div class="artistas">
 
-                    <div class="artista">
-                        <img src="../imgs/" alt="">
-                        <p>nombre canción</p>
-                    </div>
-
-                    <div class="artista">
-                        <img src="../imgs/" alt="">
-                        <p>nombre canción</p>
-                    </div>
-
-                    <div class="artista">
-                        <img src="../imgs/" alt="">
-                        <p>nombre canción </p>
-                    </div>
+                    <% if (canciones != null && !canciones.isEmpty()) { %>
+        				<% for (int i = 0; i < canciones.size() && i < 3; i++) {
+               					Cancion c = canciones.get(i);
+       				 	%>
+            			<div class="artista cancion-card" data-url="<%= c.getUrl() %>" onclick="abrirVideo(this)">
+                			<img src="./imgs/" alt="">
+                			<p><%= c.getTitulo() %></p>
+            			</div>
+        				<% } %>
+    				<% } else { %>
+        				<p>No hay canciones disponibles.</p>
+    				<% } %>
 
                 </div>
 
                 <div class="artistas">
 
-                    <div class="artista">
-                        <img src="../imgs/" alt="">
-                        <p>nombre canción </p>
-                    </div>
-
-                    <div class="artista">
-                        <img src="../imgs/" alt="">
-                        <p>nombre canción </p>
-                    </div>
-
-                    <div class="artista">
-                        <img src="../imgs/" alt="">
-                        <p>nombre canción </p>
-                    </div>
+                    <% if (canciones != null && canciones.size() > 3) { %>
+        				<% for (int i = 3; i < canciones.size() && i < 6; i++) {
+               					Cancion c = canciones.get(i);
+       					 %>
+            				<div class="artista cancion-card" data-url="<%= c.getUrl() %>" onclick="abrirVideo(this)">
+                				<img src="./imgs/" alt="">
+                				<p><%= c.getTitulo() %></p>
+            				</div>
+        				<% } %>
+    				<% } %>
 
                 </div>
 
@@ -124,6 +128,18 @@
             </div>
         </div>
     </footer>
+    
+    <script>
+    	function abrirVideo(elemento) {
+        	const url = elemento.getAttribute("data-url");
+
+        	if (url && url.trim() !== "") {
+            	window.open(url, "_blank");
+        	} else {
+            	alert("Esta canción no tiene videoclip disponible.");
+        	}
+    	}
+	</script>
 
 </body>
 
