@@ -261,5 +261,36 @@ public class CancionDAOImpl implements CancionDAO {
 
 	    return lista;
 	}
+	
+	@Override
+	public List<Cancion> findRandom(int limit) {
+	    List<Cancion> lista = new ArrayList<>();
+
+	    try {
+	        String sql = "SELECT * FROM canciones ORDER BY RAND() LIMIT ?";
+	        PreparedStatement ps = conn.prepareStatement(sql);
+	        ps.setInt(1, limit);
+
+	        ResultSet rs = ps.executeQuery();
+
+	        while (rs.next()) {
+	            Cancion c = new Cancion(
+	                rs.getInt("id"),
+	                rs.getString("titulo"),
+	                rs.getString("duracion"),
+	                rs.getLong("reproducciones"),
+	                rs.getDate("fecha"),
+	                rs.getInt("id_album"),
+	                rs.getString("url")
+	            );
+	            lista.add(c);
+	        }
+
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	    }
+
+	    return lista;
+	}
 }
 

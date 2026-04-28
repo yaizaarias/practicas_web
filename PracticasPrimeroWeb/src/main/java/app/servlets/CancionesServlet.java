@@ -32,7 +32,7 @@ public class CancionesServlet extends HttpServlet {
             conn = ds.getConnection();
 
             CancionDAOImpl cancionDAO = new CancionDAOImpl(conn);
-            List<Cancion> canciones = cancionDAO.findTopByReproducciones(6);
+            List<Cancion> canciones = cancionDAO.findRandom(6);
 
             request.setAttribute("canciones", canciones);
             request.getRequestDispatcher("/canciones.jsp").forward(request, response);
