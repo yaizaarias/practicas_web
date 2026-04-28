@@ -28,7 +28,7 @@
             <ul>
                 <li><a href="<%= request.getContextPath() %>/artistas">Artistas</a></li>
 				<li><a href="./albumes.jsp">Álbumes</a></li>
-				<li><a href="./canciones.jsp">Canciones</a></li>
+				<li><a href="<%= request.getContextPath() %>/canciones">Canciones</a></li>
 				<li><a href="./top.jsp">Top global</a></li>
 				<li><a href="./novedades.jsp">Novedades</a></li>
 				<li><a href="./generos.jsp">Géneros</a></li>

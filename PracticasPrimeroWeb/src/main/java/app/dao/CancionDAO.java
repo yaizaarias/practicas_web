@@ -18,4 +18,6 @@ public interface CancionDAO {
     void update(Cancion c);
 
     void delete(int id);
+    
+    Cancion findByTitulo(String titulo);
 }

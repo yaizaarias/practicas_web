@@ -73,6 +73,26 @@
 		<servlet-name>ArtistasServlet</servlet-name>
 		<url-pattern>/artistas</url-pattern>
 	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>BuscarCancionServlet</servlet-name>
+		<servlet-class>app.servlets.BuscarCancionServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>BuscarCancionServlet</servlet-name>
+		<url-pattern>/buscarCancion</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>CancionesServlet</servlet-name>
+		<servlet-class>app.servlets.CancionesServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>CancionesServlet</servlet-name>
+		<url-pattern>/canciones</url-pattern>
+	</servlet-mapping>
 
 	<welcome-file-list>
 		<welcome-file>index.jsp</welcome-file>

@@ -198,12 +198,68 @@ public class CancionDAOImpl implements CancionDAO {
 
         return lista;
     }
+    
+    @Override
+    public Cancion findByTitulo(String titulo) {
+        Cancion c = null;
+
+        try {
+            String sql = "SELECT * FROM canciones WHERE LOWER(TRIM(titulo)) LIKE LOWER(TRIM(?))";
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setString(1, "%" + titulo.trim() + "%");
+
+            ResultSet rs = ps.executeQuery();
+
+            if (rs.next()) {
+                c = new Cancion(
+                    rs.getInt("id"),
+                    rs.getString("titulo"),
+                    rs.getString("duracion"),
+                    rs.getLong("reproducciones"),
+                    rs.getDate("fecha"),
+                    rs.getInt("id_album"),
+                    rs.getString("url")
+                );
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return c;
+    }
 
 
 	@Override
 	public List<Cancion> findTopByReproducciones(int limit) {
 
-		return null;
+		List<Cancion> lista = new ArrayList<>();
+
+	    try {
+	        String sql = "SELECT * FROM canciones ORDER BY reproducciones DESC LIMIT ?";
+	        PreparedStatement ps = conn.prepareStatement(sql);
+	        ps.setInt(1, limit);
+
+	        ResultSet rs = ps.executeQuery();
+
+	        while (rs.next()) {
+	            Cancion c = new Cancion(
+	                rs.getInt("id"),
+	                rs.getString("titulo"),
+	                rs.getString("duracion"),
+	                rs.getLong("reproducciones"),
+	                rs.getDate("fecha"),
+	                rs.getInt("id_album"),
+	                rs.getString("url")
+	            );
+	            lista.add(c);
+	        }
+
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	    }
+
+	    return lista;
 	}
 }
 
