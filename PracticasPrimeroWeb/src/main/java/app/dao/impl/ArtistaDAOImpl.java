@@ -267,4 +267,36 @@ public class ArtistaDAOImpl implements ArtistaDAO {
 
 		    return total;
 	}
+	
+	@Override
+	public List<Artista> findRandom(int limit) {
+	    List<Artista> lista = new ArrayList<>();
+
+	    try {
+	        String sql = "SELECT * FROM artistas ORDER BY RAND() LIMIT ?";
+	        PreparedStatement ps = conn.prepareStatement(sql);
+	        ps.setInt(1, limit);
+
+	        ResultSet rs = ps.executeQuery();
+
+	        while (rs.next()) {
+	            Artista a = new Artista(
+	                rs.getInt("id"),
+	                rs.getString("nombre"),
+	                rs.getInt("edad"),
+	                rs.getString("pais"),
+	                rs.getString("productor"),
+	                rs.getInt("oyentes_mensuales"),
+	                rs.getString("biografia"),
+	                rs.getString("genero")
+	            );
+	            lista.add(a);
+	        }
+
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	    }
+
+	    return lista;
+	}
 }

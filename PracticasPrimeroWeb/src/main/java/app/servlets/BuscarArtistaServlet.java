@@ -62,9 +62,8 @@ public class BuscarArtistaServlet extends HttpServlet {
             }
 
         } catch (Exception e) {
-            e.printStackTrace();
-            request.setAttribute("errorBusqueda", "Error interno en la búsqueda");
-            request.getRequestDispatcher("/artistas.jsp").forward(request, response);
+        	 e.printStackTrace();
+        	 response.sendRedirect(request.getContextPath() + "/artistas");
         } finally {
             try {
                 if (conn != null) conn.close();
@@ -103,7 +102,7 @@ public class BuscarArtistaServlet extends HttpServlet {
     	if ("index".equals(origen)) {
     		response.sendRedirect(request.getContextPath() + "/inicio");
     	} else {
-    		request.getRequestDispatcher("/artistas.jsp").forward(request, response);
+    		response.sendRedirect(request.getContextPath() + "/artistas");
     	}
     }
     
