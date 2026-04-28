@@ -43,7 +43,7 @@
     <main class="detalles">
         <div class="cabecera">
 
-            <a href="./index.jsp" class="volver">Volver al índice</a>
+            <a href="inicio" class="volver">Volver al índice</a>
 			
             <% if (usuarioSesion != null) { %>
     			<a href="logout" class="login">Cerrar sesión</a>
@@ -54,7 +54,7 @@
             <!----------------------BÚSQUEDA DINÁMICA ---------------------->
 
             <form class="buscador-superior" action="buscarArtista" method="post">
-    			<input type="text" name="query" placeholder="¿Qué quieres buscar?" class="input-buscador">
+    			<input type="text" name="query" placeholder="¿Qué canción quieres buscar?" class="input-buscador">
     			<input type="hidden" name="origen" value="infoArtista">
     			<input type="hidden" name="artistaActualId" value="<%= artista != null ? artista.getId() : "" %>">
     			<button type="submit" class="boton-buscar">Buscar</button>
@@ -77,7 +77,7 @@
                 	<h3>Datos</h3>
                 	<h4>Edad: <%= artista.getEdad() %></h4>
                 	<h4>Oyentes mensuales: <%= artista.getOyentesMensuales() %></h4>
-                	<h4>Total de canciones: <%= canciones != null ? canciones.size() : 0 %></h4>
+                	<h4>Total de canciones: <%= request.getAttribute("totalCanciones") != null ? request.getAttribute("totalCanciones") : 0 %></h4>
                 	<h4>Nació en: <%= artista.getPais() %></h4>
                 	<h4>Productor habitual: <%= artista.getProductor() %></h4>
             	</div>
@@ -97,7 +97,7 @@
                 	<% if (canciones != null && !canciones.isEmpty()) { %>
                         <% for (Cancion c : canciones) { %>
                             <div class="cancion">
-                                <img src="./imgs/" alt="<%= c.getTitulo() %>">
+                                <img src="../imgs/" alt="">
                                 <p><%= c.getTitulo() %></p>
                                 <p><%= c.getReproducciones() %> reproducciones</p>
                             </div>

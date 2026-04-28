@@ -33,7 +33,7 @@
     <main>
         <div class="cabecera">
 
-            <a href="./index.jsp" class="volver">Volver al índice</a>
+            <a href="inicio" class="volver">Volver al índice</a>
             
             <% 	
 				String usuarioSesion = (String) session.getAttribute("usuario"); 

@@ -48,9 +48,13 @@ public class BuscarArtistaServlet extends HttpServlet {
 
             if (artistaBuscado != null) {
                 List<Cancion> canciones = artistaDAO.findCancionesByArtista(artistaBuscado.getId());
+                
+                int totalCanciones = artistaDAO.countCanciones(artistaBuscado.getId());
 
                 request.setAttribute("artista", artistaBuscado);
                 request.setAttribute("canciones", canciones);
+                request.setAttribute("totalCanciones", totalCanciones);
+                
                 request.getRequestDispatcher("/infoArtista.jsp").forward(request, response);
             } else {
             	volverConError(request, response, artistaDAO, origen, artistaActualIdStr,
@@ -82,9 +86,12 @@ public class BuscarArtistaServlet extends HttpServlet {
 
     			Artista artistaActual = artistaDAO.findById(artistaActualId);
     			List<Cancion> cancionesActuales = artistaDAO.findCancionesByArtista(artistaActualId);
+    			int totalCanciones = artistaDAO.countCanciones(artistaActualId);
 
     			request.setAttribute("artista", artistaActual);
     			request.setAttribute("canciones", cancionesActuales);
+    			request.setAttribute("totalCanciones", totalCanciones);
+    			
     			request.getRequestDispatcher("/infoArtista.jsp").forward(request, response);
     			return;
 
@@ -94,7 +101,7 @@ public class BuscarArtistaServlet extends HttpServlet {
     	}
 
     	if ("index".equals(origen)) {
-    		request.getRequestDispatcher("/index.jsp").forward(request, response);
+    		response.sendRedirect(request.getContextPath() + "/inicio");
     	} else {
     		request.getRequestDispatcher("/artistas.jsp").forward(request, response);
     	}

@@ -33,7 +33,8 @@ public class CancionDAOImpl implements CancionDAO {
                         rs.getString("duracion"),
                         rs.getLong("reproducciones"),
                         rs.getDate("fecha"),
-                        rs.getInt("idAlbum")
+                        rs.getInt("id_album"),
+                        rs.getString("url")
                 );
                 lista.add(c);
             }
@@ -57,13 +58,14 @@ public class CancionDAOImpl implements CancionDAO {
             ResultSet rs = ps.executeQuery();
 
             if (rs.next()) {
-                c = new Cancion(
+            	c = new Cancion(
                         rs.getInt("id"),
                         rs.getString("titulo"),
                         rs.getString("duracion"),
                         rs.getLong("reproducciones"),
                         rs.getDate("fecha"),
-                        rs.getInt("idAlbum")
+                        rs.getInt("id_album"),
+                        rs.getString("url")
                 );
             }
 
@@ -77,7 +79,7 @@ public class CancionDAOImpl implements CancionDAO {
     @Override
     public void insert(Cancion c) {
         try {
-            String sql = "INSERT INTO cancion(titulo,duracion,reproducciones,fecha,idAlbum) VALUES (?,?,?,?,?)";
+            String sql = "INSERT INTO cancion(titulo,duracion,reproducciones,fecha,id_album) VALUES (?,?,?,?,?)";
             
             PreparedStatement ps = conn.prepareStatement(sql);
 
@@ -97,7 +99,7 @@ public class CancionDAOImpl implements CancionDAO {
     @Override
     public void update(Cancion c) {
         try {
-            String sql = "UPDATE cancion SET titulo=?, duracion=?, reproducciones=?, fecha=?, idAlbum=? WHERE id=?";
+            String sql = "UPDATE cancion SET titulo=?, duracion=?, reproducciones=?, fecha=?, id_album=? WHERE id=?";
             PreparedStatement ps = conn.prepareStatement(sql);
 
             ps.setString(1, c.getTitulo());
@@ -151,7 +153,7 @@ public class CancionDAOImpl implements CancionDAO {
                         rs.getInt("edad"),
                         rs.getString("pais"),
                         rs.getString("productor"),
-                        rs.getInt("oyentesMensuales"),
+                        rs.getInt("oyentes_mensuales"),
                         rs.getString("biografia"),
                         rs.getString("genero")
                 );

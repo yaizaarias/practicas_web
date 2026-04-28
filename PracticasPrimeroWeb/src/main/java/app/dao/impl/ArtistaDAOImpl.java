@@ -164,8 +164,8 @@ public class ArtistaDAOImpl implements ArtistaDAO {
             e.printStackTrace();
         }
     }
-
-    // Relación de artistas y canciones 
+    
+    @Override
     public List<Cancion> findCancionesByArtista(int idArtista) {
         List<Cancion> lista = new ArrayList<>();
 
@@ -191,7 +191,8 @@ public class ArtistaDAOImpl implements ArtistaDAO {
                         rs.getString("duracion"),
                         rs.getLong("reproducciones"),
                         rs.getDate("fecha"),
-                        rs.getInt("idAlbum")
+                        rs.getInt("id_Album"),
+                        rs.getString("url")
                 );
                 lista.add(c);
             }
@@ -215,11 +216,55 @@ public class ArtistaDAOImpl implements ArtistaDAO {
 
 	@Override
 	public List<Artista> findTopByOyentes(int limit) {
-		return null;
+		List<Artista> lista = new ArrayList<>();
+
+	    try {
+	        String sql = "SELECT * FROM artistas ORDER BY oyentes_mensuales DESC LIMIT ?";
+	        PreparedStatement ps = conn.prepareStatement(sql);
+	        ps.setInt(1, limit);
+
+	        ResultSet rs = ps.executeQuery();
+
+	        while (rs.next()) {
+	            Artista a = new Artista(
+	                rs.getInt("id"),
+	                rs.getString("nombre"),
+	                rs.getInt("edad"),
+	                rs.getString("pais"),
+	                rs.getString("productor"),
+	                rs.getInt("oyentes_mensuales"),
+	                rs.getString("biografia"),
+	                rs.getString("genero")
+	            );
+	            lista.add(a);
+	        }
+
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	    }
+
+	    return lista;
 	}
 
 	@Override
 	public int countCanciones(int idArtista) {
-		return 0;
+		   int total = 0;
+
+		    try {
+		        String sql = "SELECT COUNT(*) AS total FROM artista_cancion WHERE id_artista = ?";
+		        PreparedStatement ps = conn.prepareStatement(sql);
+		        ps.setInt(1, idArtista);
+
+		        ResultSet rs = ps.executeQuery();
+
+		        if (rs.next()) {
+		            total = rs.getInt("total");
+		        }
+
+		    } catch (SQLException e) {
+		        e.printStackTrace();
+		    }
+
+		    return total;
 	}
 }

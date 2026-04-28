@@ -38,7 +38,7 @@
 
 		<div class="cabecera">
 
-			<a href="index.jsp" class="volver">Volver al índice</a>
+			<a href="inicio" class="volver">Volver al índice</a>
 
 			<%
         String usuarioSesion = (String) session.getAttribute("usuario");
@@ -82,8 +82,7 @@
         Albumes album = (Albumes) request.getAttribute("album");
         List<Cancion> canciones = (List<Cancion>) request.getAttribute("canciones");
         %>
-
->
+		
 					<%
         if (canciones != null && !canciones.isEmpty()) {
             for (Cancion c : canciones) {
@@ -103,10 +102,12 @@
         } else if (album != null) {
         %>
 
+
 					<div class="artista">
 						<img src="../imgs/" alt="">
 						<p><%=album.getTitulo()%></p>
 					</div>
+
 
 					<%
         }
@@ -116,6 +117,7 @@
 						<img src="../imgs/" alt="">
 						<p>nombre Álbum</p>
 					</div>
+
 
 					<div class="artista">
 						<img src="../imgs/" alt="">
