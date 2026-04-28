@@ -20,4 +20,6 @@ public interface CancionDAO {
     void delete(int id);
     
     Cancion findByTitulo(String titulo);
+    
+    List<Cancion> findRandom(int limit);
 }
