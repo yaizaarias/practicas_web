@@ -1,4 +1,10 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ page import="app.Artista" %>
+<%@ page import="java.util.List" %>
+
+<%
+    List<Artista> randomArtistas = (List<Artista>) request.getAttribute("randomArtistas");
+%>
 
 <!DOCTYPE html>
 <html lang="es">
@@ -19,7 +25,7 @@
 
         <nav>
             <ul>
-                <li><a href="./artistas.jsp">Artistas</a></li>
+                <li><a href="<%= request.getContextPath() %>/artistas">Artistas</a></li>
                 <li><a href="./albumes.jsp">Álbumes</a></li>
                 <li><a href="./canciones.jsp">Canciones</a></li>
                 <li><a href="./top.jsp">Top global</a></li>
@@ -73,52 +79,41 @@
 
                 <div class="artistas">
 
-                    <div class="artista">
-    					<a href="infoArtista.jsp">
-        					<img src="./imgs/" alt="">
-    					</a>
-   						<p>nombre artista</p>
-					</div>
-
-                    <div class="artista">
-    					<a href="infoArtista.jsp">
-        					<img src="./imgs/" alt="">
-    					</a>
-   						<p>nombre artista</p>
-					</div>
-
-                    <div class="artista">
-    					<a href="infoArtista.jsp">
-        					<img src="./imgs/" alt="">
-    					</a>
-   						<p>nombre artista</p>
-					</div>
+                  	<% if (randomArtistas != null && !randomArtistas.isEmpty()) { %>
+        				<% for (int i = 0; i < randomArtistas.size() && i < 3; i++) { 
+        					Artista a = randomArtistas.get(i);
+        				%>
+            				<div class="artista">
+                				<a href="<%= request.getContextPath() %>/buscarArtista?id=<%= a.getId() %>">
+                    				<img src="./imgs/" alt="">
+                				</a>
+                				<p><%= a.getNombre() %></p>
+           					</div>
+        				<% } %>
+    				<% } else { %>
+        				<p>No hay artistas disponibles.</p>
+    				<% } %>
+					
 
                 </div>
-
-    
+                
                 <div class="artistas">
 
-                    <div class="artista">
-    					<a href="infoArtista.jsp">
-        					<img src="./imgs/" alt="">
-    					</a>
-   						<p>nombre artista</p>
-					</div>
-
-                    <div class="artista">
-    					<a href="infoArtista.jsp">
-        					<img src="./imgs/" alt="">
-    					</a>
-   						<p>nombre artista</p>
-					</div>
-
-                    <div class="artista">
-    					<a href="infoArtista.jsp">
-        					<img src="./imgs/" alt="">
-    					</a>
-   						<p>nombre artista</p>
-					</div>
+                  	<% if (randomArtistas != null && randomArtistas.size() > 3) { %>
+        				<% for (int i = 3; i < randomArtistas.size() && i < 6; i++) { 
+        					Artista a = randomArtistas.get(i);
+        				%>
+            				<div class="artista">
+                				<a href="<%= request.getContextPath() %>/buscarArtista?id=<%= a.getId() %>">
+                    				<img src="./imgs/" alt="">
+                				</a>
+                				<p><%= a.getNombre() %></p>
+           					</div>
+        				<% } %>
+    				<% } else { %>
+        				<p>No hay artistas disponibles.</p>
+    				<% } %>
+					
 
                 </div>
 

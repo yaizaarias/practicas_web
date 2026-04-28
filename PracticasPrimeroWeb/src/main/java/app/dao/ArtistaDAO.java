@@ -27,4 +27,6 @@ public interface ArtistaDAO {
     void delete(int id);
     
     public List<Cancion> findCancionesByArtista(int idArtista);
+    
+    List<Artista> findRandom(int limit);
 }
