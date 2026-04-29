@@ -81,7 +81,7 @@
         				<% for (int i = 0; i < topCanciones.size() && i < 4; i++) {
                					Cancion c = topCanciones.get(i);
        				 	%>
-            				<div class="artista cancion-card" data-url="<%= c.getUrl() %>" onclick="abrirVideo(this)">
+            				<div class="cancion" data-url="<%= c.getUrl() %>" onclick="abrirVideo(this)">
             					<% int puesto = i + 1; %>
 								<h2 style="color:red;">#<%= puesto %></h2>
                 				<img src="../imgs/" alt="">
