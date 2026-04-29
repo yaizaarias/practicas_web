@@ -82,7 +82,7 @@
         				<% for (int i = 0; i < canciones.size() && i < 3; i++) {
                					Cancion c = canciones.get(i);
        				 	%>
-            			<div class="artista cancion-card" data-url="<%= c.getUrl() %>" onclick="abrirVideo(this)">
+            			<div class="cancion" data-url="<%= c.getUrl() %>" onclick="abrirVideo(this)">
                 			<img src="./imgs/" alt="">
                 			<p><%= c.getTitulo() %></p>
             			</div>
@@ -99,7 +99,7 @@
         				<% for (int i = 3; i < canciones.size() && i < 6; i++) {
                					Cancion c = canciones.get(i);
        					 %>
-            				<div class="artista cancion-card" data-url="<%= c.getUrl() %>" onclick="abrirVideo(this)">
+            				<div class="cancion" data-url="<%= c.getUrl() %>" onclick="abrirVideo(this)">
                 				<img src="./imgs/" alt="">
                 				<p><%= c.getTitulo() %></p>
             				</div>
@@ -107,6 +107,8 @@
     				<% } %>
 
                 </div>
+                <br>
+                <br>
 
             </section>
 
