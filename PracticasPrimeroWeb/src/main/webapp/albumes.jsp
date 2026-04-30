@@ -1,188 +1,213 @@
-<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-	<%@ page import="java.util.List" %>
-		<%@ page import="app.Cancion" %>
-			<%@ page import="app.Albumes" %>
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="java.util.List"%>
+<%@ page import="app.Cancion"%>
+<%@ page import="app.Albumes"%>
 
-				<!DOCTYPE html>
-				<html lang="es">
+<!DOCTYPE html>
+<html lang="es">
 
-				<head>
-					<title>Album - Sinfonía Urbana</title>
-					<meta charset="UTF-8">
-					<meta name="description" content="Artistas musicales">
-					<meta name="viewport" content="width=device-width, initial-scale=1.0">
-					<meta name="author" content="Yaiza">
-					<link rel="stylesheet" href="styles.css">
-				</head>
+<head>
+<title>Album - Sinfonía Urbana</title>
+<meta charset="UTF-8">
+<meta name="description" content="Artistas musicales">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="Yaiza">
+<link rel="stylesheet" href="styles.css">
+</head>
 
-				<body>
+<body>
 
-					<header>
-						<h1>Sinfonía Urbana</h1>
+	<header>
+		<h1>Sinfonía Urbana</h1>
 
-						<nav>
-							<ul>
-								<li><a href="./artistas.jsp">Artistas</a></li>
+		<nav>
+			<ul>
+				<li><a href="./artistas.jsp">Artistas</a></li>
 
-								<li><a href="<%= request.getContextPath() %>/albumes">
-										Álbumes </a></li>
+				<li><a href="<%=request.getContextPath()%>/albumes">
+						Álbumes </a></li>
 
-								<li><a href="./canciones.jsp">Canciones</a></li>
-								<li><a href="./top.jsp">Top global</a></li>
-								<li><a href="./novedades.jsp">Novedades</a></li>
-								<li><a href="./generos.jsp">Géneros</a></li>
-							</ul>
-						</nav>
+				<li><a href="./canciones.jsp">Canciones</a></li>
+				<li><a href="./top.jsp">Top global</a></li>
+				<li><a href="./novedades.jsp">Novedades</a></li>
+				<li><a href="./generos.jsp">Géneros</a></li>
+			</ul>
+		</nav>
 
-						<hr>
-					</header>
+		<hr>
+	</header>
 
-					<main>
+	<main>
 
-						<div class="cabecera">
-							<a href="inicio" class="volver"> Volver al índice </a>
+		<div class="cabecera">
+			<a href="inicio" class="volver"> Volver al índice </a>
 
-							<% String usuarioSesion=(String) session.getAttribute("usuario"); %>
+			<%
+			String usuarioSesion = (String) session.getAttribute("usuario");
+			%>
 
-								<% if (usuarioSesion !=null) { %>
+			<%
+			if (usuarioSesion != null) {
+			%>
 
-									<a href="logout" class="login"> Cerrar sesión </a>
+			<a href="logout" class="login"> Cerrar sesión </a>
 
-									<% } else { %>
+			<%
+			} else {
+			%>
 
-										<a href="login.jsp" class="login"> Acceso </a>
+			<a href="login.jsp" class="login"> Acceso </a>
 
-										<% } %>
+			<%
+			}
+			%>
 
-											<form class="buscador-superior"
-												action="<%= request.getContextPath() %>/buscarAlbum" method="post">
+			<form class="buscador-superior"
+				action="<%=request.getContextPath()%>/buscarAlbum" method="post">
 
-												<input type="text" name="album" placeholder="¿Qué quieres buscar?"
-													class="input-buscador">
+				<input type="text" name="album" placeholder="¿Qué quieres buscar?"
+					class="input-buscador">
 
-												<button type="submit" class="boton-buscar">Buscar</button>
+				<button type="submit" class="boton-buscar">Buscar</button>
 
-											</form>
+			</form>
 
-											<br> <br>
+			<br> <br>
 
-											<h2 class="titulo-artistas">Álbumes</h2>
+			<h2 class="titulo-artistas">Álbumes</h2>
 
-						</div>
+		</div>
 
-						<div class="contenido">
+		<div class="contenido">
 
-							<section class="centro">
+			<section class="centro">
 
-								<% List<Cancion> canciones =
-									(List<Cancion>) request.getAttribute("canciones");
+				<%
+				List<Cancion> canciones = (List<Cancion>) request.getAttribute("canciones");
 
-										String error =
-										(String) request.getAttribute("error");
-										%>
+				String error = (String) request.getAttribute("error");
+				%>
 
-										<div class="artistas">
-											<% if (error !=null) { %>
+				<div class="artistas">
+					<%
+					if (error != null) {
+					%>
 
-												<p style="color: red; font-size: 18px;">
-													<%= error %>
-												</p>
+					<p style="color: red; font-size: 18px;">
+						<%=error%>
+					</p>
 
-												<% } else if (canciones !=null && !canciones.isEmpty()) { %>
+					<%
+					} else if (canciones != null && !canciones.isEmpty()) {
+					%>
 
-													<% for (Cancion c : canciones) { %>
+					<%
+					for (Cancion c : canciones) {
+					%>
 
-														<div class="artista">
+					<div class="artista">
 
-															<img src="imgs/default.jpg" alt="">
+						<img src="imgs/default.jpg" alt="">
 
-															<p>
-																<a href="<%= c.getUrl() %>" target="_blank"
-																	style="color: red; text-decoration: none; font-weight: bold;">
+						<p>
+							<a href="<%=c.getUrl()%>" target="_blank"
+								style="color: red; text-decoration: none; font-weight: bold;">
 
-																	<%= c.getTitulo() %>
+								<%=c.getTitulo()%>
 
-																</a>
-															</p>
+							</a>
+						</p>
 
-														</div>
+					</div>
 
-														<% } %>
+					<%
+					}
+					%>
 
-															<% } else if (request.getParameter("album") !=null) { %>
+					<%
+					} else if (request.getParameter("album") != null) {
+					%>
 
-																<p style="color: white; font-size: 20px;">No hay
-																	canciones en
-																	este álbum.</p>
+					<p style="color: white; font-size: 20px;">No hay canciones en
+						este álbum.</p>
 
-																<%-- 🎲 RANDOMS POR DEFECTO --%>
-																	<% } else { %>
+					<%-- 🎲 RANDOMS POR DEFECTO --%>
+					<%
+					} else {
+					%>
 
-																		<% List<Cancion> randoms =
-																			(List<Cancion>)
-																				request.getAttribute("randoms");
-																				%>
+					<%
+					List<Cancion> randoms = (List<Cancion>) request.getAttribute("randoms");
+					%>
 
-																				<% if (randoms !=null) { %>
+					<%
+					if (randoms != null) {
+					%>
 
-																					<% for (Cancion c : randoms) { %>
+					<%
+					for (Cancion c : randoms) {
+					%>
 
 
-																						<div class="artista">
+					<div class="artista">
 
-																							<img src="imgs/default.jpg"
-																								alt="">
+						<img src="imgs/default.jpg" alt="">
 
-																							<p>
-																								<a href="<%= c.getUrl() %>"
-																									target="_blank"
-																									style="color: red; text-decoration: none; font-weight: bold;">
+						<p>
+							<a href="<%=c.getUrl()%>" target="_blank"
+								style="color: red; text-decoration: none; font-weight: bold;">
 
-																									<%= c.getTitulo() %>
+								<%=c.getTitulo()%>
 
-																								</a>
-																							</p>
+							</a>
+						</p>
 
-																						</div>
+					</div>
 
-																						<% } %>
+					<%
+					}
+					%>
 
-																							<% } %>
+					<%
+					}
+					%>
 
-																								<% } %>
+					<%
+					}
+					%>
 
-										</div>
+				</div>
 
-							</section>
+			</section>
 
-						</div>
+		</div>
 
-					</main>
+	</main>
 
-					<footer>
+	<footer>
 
-						<div class="footer-content">
+		<div class="footer-content">
 
-							<div>
+			<div>
 
-								<h4>Proyecto</h4>
+				<h4>Proyecto</h4>
 
-								<p>Sinfonía Urbana</p>
+				<p>Sinfonía Urbana</p>
 
-							</div>
+			</div>
 
-							<div>
+			<div>
 
-								<h4>Contacto</h4>
+				<h4>Contacto</h4>
 
-								<p>yaiza5arias@gmail.com</p>
+				<p>yaiza5arias@gmail.com</p>
 
-							</div>
+			</div>
 
-						</div>
+		</div>
 
-					</footer>
+	</footer>
 
-				</body>
+</body>
 
-				</html>
+</html>
