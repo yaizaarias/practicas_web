@@ -35,13 +35,44 @@
 	</servlet-mapping>
 
 	<servlet>
+		<servlet-name>BuscarArtistaServlet</servlet-name>
+		<servlet-class>app.servlets.BuscarArtistaServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>BuscarArtistaServlet</servlet-name>
+		<url-pattern>/buscarArtista</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>IndexServlet</servlet-name>
+		<servlet-class>app.servlets.IndexServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>IndexServlet</servlet-name>
+		<url-pattern>/inicio</url-pattern>
+	</servlet-mapping>
+
+
+	<servlet>
+		<servlet-name>AlbumesServlet</servlet-name>
+		<servlet-class>app.servlets.AlbumesServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>AlbumesServlet</servlet-name>
+		<url-pattern>/albumes</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
 		<servlet-name>BuscarAlbumServlet</servlet-name>
 		<servlet-class>app.servlets.BuscarAlbumServlet</servlet-class>
 	</servlet>
 
 	<servlet-mapping>
 		<servlet-name>BuscarAlbumServlet</servlet-name>
-		<url-pattern>/BuscarAlbumServlet</url-pattern>
+		<url-pattern>/buscarAlbum</url-pattern>
 	</servlet-mapping>
 
 	<welcome-file-list>

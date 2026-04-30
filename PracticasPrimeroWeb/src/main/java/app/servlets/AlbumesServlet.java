@@ -8,9 +8,7 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
-import app.Albumes;
 import app.Cancion;
-import app.dao.impl.AlbumDAOImpl;
 import app.dao.impl.CancionDAOImpl;
 
 import jakarta.servlet.ServletException;
@@ -18,17 +16,14 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-public class BuscarAlbumServlet extends HttpServlet {
+public class AlbumesServlet extends HttpServlet {
 
     private static final long serialVersionUID = 1L;
 
     @Override
-    protected void doPost(HttpServletRequest request,
+    protected void doGet(HttpServletRequest request,
             HttpServletResponse response)
             throws ServletException, IOException {
-
-        String nombreAlbum =
-                request.getParameter("album");
 
         Connection conn = null;
 
@@ -44,46 +39,13 @@ public class BuscarAlbumServlet extends HttpServlet {
 
             conn = ds.getConnection();
 
-            AlbumDAOImpl albumDAO =
-                    new AlbumDAOImpl(conn);
-
             CancionDAOImpl cancionDAO =
                     new CancionDAOImpl(conn);
+            
+            
+            List<Cancion> randoms = cancionDAO.findRandom(6);
 
-            if (nombreAlbum == null
-                    || nombreAlbum.trim().isEmpty()) {
-
-                List<Cancion> randomCanciones =
-                        cancionDAO.findRandom(6);
-
-                request.setAttribute(
-                        "canciones",
-                        randomCanciones);
-
-                request.getRequestDispatcher("/albumes.jsp")
-                        .forward(request, response);
-
-                return;
-            }
-
-            Albumes album =
-                    albumDAO.findByNombre(nombreAlbum);
-
-            if (album != null) {
-
-                List<Cancion> canciones =
-                        cancionDAO.findByAlbum(album.getId());
-
-                request.setAttribute(
-                        "canciones",
-                        canciones);
-
-            } else {
-
-                request.setAttribute(
-                        "error",
-                        "No se ha encontrado ningún álbum");
-            }
+            request.setAttribute("randoms", randoms);
 
             request.getRequestDispatcher("/albumes.jsp")
                     .forward(request, response);
@@ -92,8 +54,8 @@ public class BuscarAlbumServlet extends HttpServlet {
 
             e.printStackTrace();
 
-            response.sendRedirect(
-                    request.getContextPath() + "/albumes");
+            request.getRequestDispatcher("/albumes.jsp")
+                    .forward(request, response);
 
         } finally {
 

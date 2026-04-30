@@ -22,7 +22,7 @@ public class CancionDAOImpl implements CancionDAO {
         List<Cancion> lista = new ArrayList<>();
 
         try {
-            String sql = "SELECT * FROM cancion";
+            String sql = "SELECT * FROM canciones";
             Statement stmt = conn.createStatement();
             ResultSet rs = stmt.executeQuery(sql);
 
@@ -50,7 +50,7 @@ public class CancionDAOImpl implements CancionDAO {
         Cancion c = null;
 
         try {
-            String sql = "SELECT * FROM cancion WHERE id=?";
+            String sql = "SELECT * FROM canciones WHERE id=?";
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.setInt(1, id);
 
@@ -77,7 +77,8 @@ public class CancionDAOImpl implements CancionDAO {
     @Override
     public void insert(Cancion c) {
         try {
-            String sql = "INSERT INTO cancion(titulo,duracion,reproducciones,fecha,idAlbum) VALUES (?,?,?,?,?)";
+
+            String sql = "INSERT INTO canciones(titulo,duracion,reproducciones,fecha,id_album) VALUES (?,?,?,?,?)";
             
             PreparedStatement ps = conn.prepareStatement(sql);
 
@@ -97,7 +98,9 @@ public class CancionDAOImpl implements CancionDAO {
     @Override
     public void update(Cancion c) {
         try {
-            String sql = "UPDATE cancion SET titulo=?, duracion=?, reproducciones=?, fecha=?, idAlbum=? WHERE id=?";
+
+            String sql = "UPDATE canciones SET titulo=?, duracion=?, reproducciones=?, fecha=?, id_album=? WHERE id=?";
+
             PreparedStatement ps = conn.prepareStatement(sql);
 
             ps.setString(1, c.getTitulo());
@@ -117,7 +120,7 @@ public class CancionDAOImpl implements CancionDAO {
     @Override
     public void delete(int id) {
         try {
-            String sql = "DELETE FROM cancion WHERE id=?";
+            String sql = "DELETE FROM canciones WHERE id=?";
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.setInt(1, id);
 
@@ -177,14 +180,15 @@ public class CancionDAOImpl implements CancionDAO {
             ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {
-                lista.add(new Cancion(
-                        rs.getInt("id"),
-                        rs.getString("titulo"),
-                        rs.getString("duracion"),
-                        rs.getLong("reproducciones"),
-                        rs.getDate("fecha"),
-                        rs.getInt("id_album")
-                ));
+            	lista.add(new Cancion(
+            		    rs.getInt("id"),
+            		    rs.getString("titulo"),
+            		    rs.getString("duracion"),
+            		    rs.getLong("reproducciones"),
+            		    rs.getDate("fecha"),
+            		    rs.getInt("id_album"),
+            		    rs.getString("url")
+            		));
             }
 
         } catch (SQLException e) {
@@ -193,12 +197,67 @@ public class CancionDAOImpl implements CancionDAO {
 
         return lista;
     }
+    @Override
+    public List<Cancion> findRandom(int limit) {
+
+        List<Cancion> lista = new ArrayList<>();
+
+        try {
+            String sql = "SELECT * FROM canciones ORDER BY RAND() LIMIT ?";
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setInt(1, limit);
+
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+                lista.add(new Cancion(
+                    rs.getInt("id"),
+                    rs.getString("titulo"),
+                    rs.getString("duracion"),
+                    rs.getLong("reproducciones"),
+                    rs.getDate("fecha"),
+                    rs.getInt("id_album"),
+                    rs.getString("url")
+                ));
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return lista;
+    }
 
 
-	@Override
-	public List<Cancion> findTopByReproducciones(int limit) {
+    @Override
+    public List<Cancion> findTopByReproducciones(int limit) {
 
-		return null;
-	}
+        List<Cancion> lista = new ArrayList<>();
+
+        try {
+            String sql = "SELECT * FROM canciones ORDER BY reproducciones DESC LIMIT ?";
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setInt(1, limit);
+
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+                lista.add(new Cancion(
+                    rs.getInt("id"),
+                    rs.getString("titulo"),
+                    rs.getString("duracion"),
+                    rs.getLong("reproducciones"),
+                    rs.getDate("fecha"),
+                    rs.getInt("id_album"),
+                    rs.getString("url")
+                ));
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return lista;
+    }
 }
 
