@@ -1,4 +1,10 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ page import="app.Cancion" %>
+<%@ page import="java.util.List" %>
+
+<%
+    List<Cancion> topCanciones = (List<Cancion>) request.getAttribute("topCanciones");
+%>
 
 <!DOCTYPE html>
 <html lang="es">
@@ -19,10 +25,10 @@
 
         <nav>
             <ul>
-                <li><a href="./artistas.jsp">Artistas</a></li>
+                <li><a href="<%= request.getContextPath() %>/artistas">Artistas</a></li>
                 <li><a href="./albumes.jsp">Álbumes</a></li>
-                <li><a href="./canciones.jsp">Canciones</a></li>
-                <li><a href="./top.jsp">Top global</a></li>
+                <li><a href="<%= request.getContextPath() %>/canciones">Canciones</a></li>
+                <li><a href="<%= request.getContextPath() %>/top">Top global</a></li>
                 <li><a href="./novedades.jsp">Novedades</a></li>
                 <li><a href="./generos.jsp">Géneros</a></li>
             </ul>
@@ -36,7 +42,7 @@
 
         <div class="cabecera">
         
-            <a href="./index.jsp" class="volver">Volver al índice</a>
+            <a href="inicio" class="volver">Volver al índice</a>
             
             <% 	
 				String usuarioSesion = (String) session.getAttribute("usuario"); 
@@ -50,9 +56,13 @@
 			
  <!----------------------BÚSQUEDA DINÁMICA ---------------------->
             <form class="buscador-superior" action="buscarCancion" method="post">
-                <input type="text" name="query" placeholder="¿Qué quieres buscar?" class="input-buscador">
-                <button type="submit" class="boton-buscar">Buscar</button>
-            </form>
+    			<input type="text" name="query" placeholder="¿Qué canción quieres escuchar?" class="input-buscador">
+    			<button type="submit" class="boton-buscar">Buscar</button>
+			</form>
+
+			<p class="mensaje-error">
+    			<%= request.getAttribute("errorBusqueda") != null ? request.getAttribute("errorBusqueda") : "" %>
+			</p>
             
         </div>
 
@@ -66,30 +76,22 @@
                 <h3 class="subtitulo-novedades">LANZAMIENTOS MÁS ESCUCHADOS</h3>
 
                 <div class="artistas">
+                
+                	<% if (topCanciones != null && !topCanciones.isEmpty()) { %>
+        				<% for (int i = 0; i < topCanciones.size() && i < 4; i++) {
+               					Cancion c = topCanciones.get(i);
+       				 	%>
+            				<div class="cancion" data-url="<%= c.getUrl() %>" onclick="abrirVideo(this)">
+            					<% int puesto = i + 1; %>
+								<h2 style="color:red;">#<%= puesto %></h2>
+                				<img src="../imgs/" alt="">
+                				<p><%= c.getTitulo() %></p>
+            				</div>
+        				<% } %>
+    				<% } else { %>
+        				<p>No hay canciones disponibles.</p>
+    				<% } %>
 
-                    <div class="artista">
-                        <h2 style="color:red;">nº1</h2>
-                        <img src="../imgs/" alt="">
-                        <p>nombre canción</p>
-                    </div>
-
-                    <div class="artista">
-                        <h2 style="color:red;">nº2</h2>
-                        <img src="../imgs/" alt="">
-                        <p>nombre canción</p>
-                    </div>
-
-                    <div class="artista">
-                        <h2 style="color:red;">nº3</h2>
-                        <img src="../imgs/" alt="">
-                        <p>nombre canción</p>
-                    </div>
-
-                    <div class="artista">
-                        <h2 style="color:red;">nº4</h2>
-                        <img src="../imgs/" alt="">
-                        <p>nombre canción</p>
-                    </div>
 
                 </div>
 
@@ -112,6 +114,18 @@
             </div>
         </div>
     </footer>
+    
+    <script>
+    	function abrirVideo(elemento) {
+        	const url = elemento.getAttribute("data-url");
+
+        	if (url && url.trim() !== "") {
+            	window.open(url, "_blank");
+        	} else {
+           		alert("Esta canción no tiene videoclip disponible.");
+        	}
+    	}
+	</script>
 
 </body>
 

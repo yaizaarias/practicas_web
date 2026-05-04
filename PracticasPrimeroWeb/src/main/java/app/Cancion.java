@@ -12,6 +12,7 @@ public class Cancion {
     private int idAlbum;
     private String url;
 
+
     public Cancion(int id,
             String titulo,
             String duracion,
@@ -84,4 +85,5 @@ public class Cancion {
     public void setUrl(String url) {
         this.url = url;
     }
+
 }

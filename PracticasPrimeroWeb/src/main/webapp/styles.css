@@ -132,13 +132,15 @@ nav a {
 .cancion {
     text-align: center;
     width: 300px;
+    cursor: pointer;
 }
 
 .cancion img {
     width: 300px;
     height: 200px;
     object-fit: cover;
-    border-radius: 0;
+    border: 2px solid transparent;
+    transition: 0.2s;
     background: #efefef;
 }
 
@@ -157,6 +159,10 @@ nav a {
 
 .artista:hover {
     transform: scale(1.05);
+}
+
+.cancion:hover img {
+    border: 2px solid blue;
 }
 
 .artista img {
@@ -472,4 +478,13 @@ footer {
 
 .buscador-superior .boton-buscar:hover {
     background-color: #444;
+}
+
+.cancion-card {
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.cancion-card:hover {
+    transform: scale(1.05);
 }

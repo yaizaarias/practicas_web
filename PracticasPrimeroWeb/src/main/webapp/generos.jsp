@@ -20,10 +20,10 @@
 
         <nav>
             <ul>
-                <li><a href="./artistas.jsp">Artistas</a></li>
+                <li><a href="<%= request.getContextPath() %>/artistas">Artistas</a></li>
                 <li><a href="./albumes.jsp">Álbumes</a></li>
-                <li><a href="./canciones.jsp">Canciones</a></li>
-                <li><a href="./top.jsp">Top global</a></li>
+                <li><a href="<%= request.getContextPath() %>/canciones">Canciones</a></li>
+                <li><a href="<%= request.getContextPath() %>/top">Top global</a></li>
                 <li><a href="./novedades.jsp">Novedades</a></li>
                 <li><a href="./generos.jsp">Géneros</a></li>
             </ul>
@@ -37,7 +37,7 @@
 
         <div class="cabecera">
 
-            <a href="./index.jsp" class="volver">Volver al índice</a>
+            <a href="inicio" class="volver">Volver al índice</a>
             
             <% 	
 				String usuarioSesion = (String) session.getAttribute("usuario"); 

@@ -18,7 +18,9 @@ public interface CancionDAO {
     void update(Cancion c);
 
     void delete(int id);
+    
+    Cancion findByTitulo(String titulo);
+    
+    List<Cancion> findRandom(int limit);
 
-	List<Cancion> findRandom(int limit);
-	
 }

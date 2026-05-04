@@ -8,7 +8,6 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 
 import app.Usuario;
-import app.dao.UsuarioDAO;
 import app.dao.impl.UsuarioDAOImpl;
 
 import jakarta.servlet.ServletException;
@@ -39,7 +38,7 @@ public class LoginServlet extends HttpServlet {
         	DataSource ds = (DataSource) envCtx.lookup("jdbc/musicaDB");
         	conn = ds.getConnection();
 
-            UsuarioDAO usuarioDAO = new UsuarioDAOImpl(conn);
+            UsuarioDAOImpl usuarioDAO = new UsuarioDAOImpl(conn);
             Usuario usuario = usuarioDAO.login(identificador, contrasena);
         	
         	if (usuario != null) {
@@ -48,7 +47,7 @@ public class LoginServlet extends HttpServlet {
                 sesion.setAttribute("email", usuario.getEmail());
                 sesion.setAttribute("rol", usuario.getRol()); 
                 sesion.setAttribute("sesionIniciada", "Sesion iniciada en " + usuario.getNickname());
-                response.sendRedirect(request.getContextPath() + "/index.jsp");
+                response.sendRedirect(request.getContextPath() + "/inicio");
                 
             } else {
                 request.setAttribute("error", "ERROR: Usuario o contraseña incorrectos");
@@ -58,6 +57,12 @@ public class LoginServlet extends HttpServlet {
             e.printStackTrace();
             request.setAttribute("error", "ERROR interno al iniciar sesión");
             request.getRequestDispatcher("/login.jsp").forward(request, response);
+        }finally {
+            try {
+                if (conn != null) conn.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
         
 	}

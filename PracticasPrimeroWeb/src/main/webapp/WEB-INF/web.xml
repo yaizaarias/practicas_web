@@ -29,10 +29,30 @@
 		<servlet-class>app.servlets.LogoutServlet</servlet-class>
 	</servlet>
 
-	<servlet-mapping>
-		<servlet-name>LogoutServlet</servlet-name>
-		<url-pattern>/logout</url-pattern>
-	</servlet-mapping>
+  <servlet-mapping>
+      <servlet-name>LogoutServlet</servlet-name>
+      <url-pattern>/logout</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+      <servlet-name>BuscarArtistaServlet</servlet-name>
+      <servlet-class>app.servlets.BuscarArtistaServlet</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+      <servlet-name>BuscarArtistaServlet</servlet-name>
+      <url-pattern>/buscarArtista</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+      <servlet-name>IndexServlet</servlet-name>
+      <servlet-class>app.servlets.IndexServlet</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+      <servlet-name>IndexServlet</servlet-name>
+      <url-pattern>/inicio</url-pattern>
+  </servlet-mapping>
 
 	<servlet>
 		<servlet-name>BuscarArtistaServlet</servlet-name>
@@ -74,9 +94,49 @@
 		<servlet-name>BuscarAlbumServlet</servlet-name>
 		<url-pattern>/buscarAlbum</url-pattern>
 	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>ArtistasServlet</servlet-name>
+		<servlet-class>app.servlets.ArtistasServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>ArtistasServlet</servlet-name>
+		<url-pattern>/artistas</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>BuscarCancionServlet</servlet-name>
+		<servlet-class>app.servlets.BuscarCancionServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>BuscarCancionServlet</servlet-name>
+		<url-pattern>/buscarCancion</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>CancionesServlet</servlet-name>
+		<servlet-class>app.servlets.CancionesServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>CancionesServlet</servlet-name>
+		<url-pattern>/canciones</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>TopServlet</servlet-name>
+		<servlet-class>app.servlets.TopServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>TopServlet</servlet-name>
+		<url-pattern>/top</url-pattern>
+	</servlet-mapping>
 
 	<welcome-file-list>
-		<welcome-file>index.jsp</welcome-file>
+		<welcome-file>inicio</welcome-file>
 	</welcome-file-list>
 
 </web-app>
