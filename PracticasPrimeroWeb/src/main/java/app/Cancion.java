@@ -3,6 +3,7 @@ package app;
 import java.sql.Date;
 
 public class Cancion {
+
     private int id;
     private String titulo;
     private String duracion;
@@ -84,4 +85,3 @@ public class Cancion {
         this.url = url;
     }
 }
-

@@ -40,6 +40,7 @@
 	<main>
 
 		<div class="cabecera">
+
 			<a href="inicio" class="volver"> Volver al índice </a>
 
 			<%
@@ -89,92 +90,101 @@
 				%>
 
 				<div class="artistas">
-					<%
-					if (error != null) {
-					%>
 
-					<p style="color: red; font-size: 18px;">
-						<%=error%>
-					</p>
+					<div class="artistas">
 
-					<%
-					} else if (canciones != null && !canciones.isEmpty()) {
-					%>
+						
+						<%
+						if (error != null) {
+						%>
 
-					<%
-					for (Cancion c : canciones) {
-					%>
-
-					<div class="artista">
-
-						<img src="imgs/default.jpg" alt="">
-
-						<p>
-							<a href="<%=c.getUrl()%>" target="_blank"
-								style="color: red; text-decoration: none; font-weight: bold;">
-
-								<%=c.getTitulo()%>
-
-							</a>
+						<p style="color: red; font-size: 18px;">
+							<%=error%>
 						</p>
+
+						
+						<%
+						} else if (canciones != null && !canciones.isEmpty()) {
+						%>
+
+						<%
+						for (Cancion c : canciones) {
+						%>
+
+						<div class="artista">
+
+							<img src="imgs/default.jpg" alt="">
+
+							<p>
+								<a href="<%=c.getUrl()%>" target="_blank"
+									style="color: red; text-decoration: none; font-weight: bold;">
+
+									<%=c.getTitulo()%>
+
+								</a>
+							</p>
+
+						</div>
+
+						<%
+						}
+						%>
+
+						
+						<%
+						} else if (request.getParameter("album") != null) {
+						%>
+
+						<p style="color: white; font-size: 20px;">No hay canciones en
+							este álbum.</p>
+
+						
+						<%
+						} else {
+						%>
+
+						<%
+						List<Cancion> randoms = (List<Cancion>) request.getAttribute("randoms");
+						%>
+
+						<%
+						if (randoms != null) {
+						%>
+
+						<%
+						for (Cancion c : randoms) {
+						%>
+
+						<div class="artista">
+
+							<img src="imgs/default.jpg" alt="">
+
+							<p>
+								<a href="<%=c.getUrl()%>" target="_blank"
+									style="color: red; text-decoration: none; font-weight: bold;">
+
+									<%=c.getTitulo()%>
+
+								</a>
+							</p>
+
+						</div>
+
+						<%
+						}
+						%>
+
+						<%
+						}
+						%>
+
+						<%
+						}
+						%>
 
 					</div>
 
-					<%
-					}
-					%>
 
-					<%
-					} else if (request.getParameter("album") != null) {
-					%>
-
-					<p style="color: white; font-size: 20px;">No hay canciones en
-						este álbum.</p>
-
-					<%-- 🎲 RANDOMS POR DEFECTO --%>
-					<%
-					} else {
-					%>
-
-					<%
-					List<Cancion> randoms = (List<Cancion>) request.getAttribute("randoms");
-					%>
-
-					<%
-					if (randoms != null) {
-					%>
-
-					<%
-					for (Cancion c : randoms) {
-					%>
-
-
-					<div class="artista">
-
-						<img src="imgs/default.jpg" alt="">
-
-						<p>
-							<a href="<%=c.getUrl()%>" target="_blank"
-								style="color: red; text-decoration: none; font-weight: bold;">
-
-								<%=c.getTitulo()%>
-
-							</a>
-						</p>
-
-					</div>
-
-					<%
-					}
-					%>
-
-					<%
-					}
-					%>
-
-					<%
-					}
-					%>
 
 				</div>
 

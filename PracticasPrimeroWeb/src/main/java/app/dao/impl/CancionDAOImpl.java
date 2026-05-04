@@ -33,7 +33,7 @@ public class CancionDAOImpl implements CancionDAO {
                         rs.getString("duracion"),
                         rs.getLong("reproducciones"),
                         rs.getDate("fecha"),
-                        rs.getInt("idAlbum")
+                        rs.getInt("idAlbum"), sql
                 );
                 lista.add(c);
             }
@@ -63,7 +63,7 @@ public class CancionDAOImpl implements CancionDAO {
                         rs.getString("duracion"),
                         rs.getLong("reproducciones"),
                         rs.getDate("fecha"),
-                        rs.getInt("idAlbum")
+                        rs.getInt("idAlbum"), sql
                 );
             }
 

@@ -217,22 +217,21 @@ public class AlbumDAOImpl implements AlbumDAO {
 
         try {
 
-            String sql =
-                    "SELECT * FROM albumes WHERE LOWER(TRIM(titulo)) = LOWER(?)";
+            String sql = "SELECT * FROM albumes WHERE titulo = ?";
 
             PreparedStatement ps = conn.prepareStatement(sql);
 
-            ps.setString(1, nombre.trim());
+            ps.setString(1, nombre);
 
             ResultSet rs = ps.executeQuery();
 
             if (rs.next()) {
 
                 album = new Albumes(
-                        rs.getInt("id"),
-                        rs.getString("titulo"),
-                        rs.getDate("ano"),
-                        rs.getInt("id_artista")
+                    rs.getInt("id"),
+                    rs.getString("titulo"),
+                    rs.getDate("ano"),
+                    rs.getInt("id_artista")
                 );
             }
 

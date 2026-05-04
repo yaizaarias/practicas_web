@@ -160,7 +160,7 @@ public class ArtistaDAOImpl implements ArtistaDAO {
                         rs.getString("duracion"),
                         rs.getLong("reproducciones"),
                         rs.getDate("fecha"),
-                        rs.getInt("idAlbum")
+                        rs.getInt("idAlbum"), sql
                 );
                 lista.add(c);
             }

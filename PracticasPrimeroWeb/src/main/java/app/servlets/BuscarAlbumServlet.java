@@ -10,10 +10,13 @@ import javax.sql.DataSource;
 
 import app.Albumes;
 import app.Cancion;
+import app.dao.AlbumDAO;
+import app.dao.CancionDAO;
 import app.dao.impl.AlbumDAOImpl;
 import app.dao.impl.CancionDAOImpl;
 
 import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -22,89 +25,45 @@ public class BuscarAlbumServlet extends HttpServlet {
 
     private static final long serialVersionUID = 1L;
 
-    @Override
-    protected void doPost(HttpServletRequest request,
-            HttpServletResponse response)
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        String nombreAlbum =
-                request.getParameter("album");
-
-        Connection conn = null;
+        String nombreAlbum = request.getParameter("album");
 
         try {
 
-            Context initCtx = new InitialContext();
+            Context initContext = new InitialContext();
+            Context envContext = (Context) initContext.lookup("java:/comp/env");
 
-            Context envCtx =
-                    (Context) initCtx.lookup("java:comp/env");
+            DataSource ds = (DataSource) envContext.lookup("jdbc/musicaDB");
 
-            DataSource ds =
-                    (DataSource) envCtx.lookup("jdbc/musicaDB");
+            Connection conn = ds.getConnection();
 
-            conn = ds.getConnection();
+            AlbumDAO albumDAO = new AlbumDAOImpl(conn);
+            CancionDAO cancionDAO = new CancionDAOImpl(conn);
 
-            AlbumDAOImpl albumDAO =
-                    new AlbumDAOImpl(conn);
-
-            CancionDAOImpl cancionDAO =
-                    new CancionDAOImpl(conn);
-
-            if (nombreAlbum == null
-                    || nombreAlbum.trim().isEmpty()) {
-
-                List<Cancion> randomCanciones =
-                        cancionDAO.findRandom(6);
-
-                request.setAttribute(
-                        "canciones",
-                        randomCanciones);
-
-                request.getRequestDispatcher("/albumes.jsp")
-                        .forward(request, response);
-
-                return;
-            }
-
-            Albumes album =
-                    albumDAO.findByNombre(nombreAlbum);
+            
+            Albumes album = albumDAO.findByNombre(nombreAlbum);
 
             if (album != null) {
 
-                List<Cancion> canciones =
-                        cancionDAO.findByAlbum(album.getId());
+               
+                List<Cancion> canciones = cancionDAO.findByAlbum(album.getId());
 
-                request.setAttribute(
-                        "canciones",
-                        canciones);
+                request.setAttribute("canciones", canciones);
 
             } else {
 
-                request.setAttribute(
-                        "error",
-                        "No se ha encontrado ningún álbum");
+                request.setAttribute("error", "No existe ese álbum");
+
             }
 
-            request.getRequestDispatcher("/albumes.jsp")
-                    .forward(request, response);
+            conn.close();
 
         } catch (Exception e) {
-
             e.printStackTrace();
-
-            response.sendRedirect(
-                    request.getContextPath() + "/albumes");
-
-        } finally {
-
-            try {
-
-                if (conn != null)
-                    conn.close();
-
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
         }
+
+        request.getRequestDispatcher("albumes.jsp").forward(request, response);
     }
 }
