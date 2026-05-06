@@ -4,7 +4,7 @@
               auth="Container"
               type="javax.sql.DataSource"
               username="root"
-              password="70107010"
+              password="admin"
               driverClassName="com.mysql.cj.jdbc.Driver"
               url="jdbc:mysql://localhost:3306/musica_db"/>
 </Context>
